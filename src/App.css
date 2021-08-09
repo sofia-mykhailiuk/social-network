@@ -11,20 +11,6 @@
   grid-gap: 10px;
 }
 
-.header {
-  grid-area: h;
-  background-color: darkblue;
-  border-radius: 5px;
-}
-.header img {
-  width: 50px;
-}
 
-.nav {
-  grid-area: n;
-  background-color: #e1e1e1;
-}
 
-.content {
-  grid-area: c;
-}
+
