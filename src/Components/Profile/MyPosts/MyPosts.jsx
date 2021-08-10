@@ -2,7 +2,8 @@ import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+    // debugger;
     return (
         <div>
             My posts
@@ -11,9 +12,8 @@ const MyPosts = () => {
                 <button>Add post</button>
             </div>
             <div className={classes.posts}>
-                <Post/>
-                <Post/>
-                <Post/>
+                <Post message='Hi, how are you?' likes='4'/>
+                <Post message='This is my first post' likes='199'/>
             </div>
         </div>
     );
