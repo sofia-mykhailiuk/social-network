@@ -8,7 +8,7 @@ const Post = (props) => {
             <img src="https://gloryimage.b-cdn.net/images/team/avatar_user_36692_1511968805.jpg" alt=""/>
             <span>{props.message}</span>
             <div>
-                <span>{[props.likes]} Like</span>
+                <span>{[props.likesCount]} Like</span>
             </div>
         </div>
     );

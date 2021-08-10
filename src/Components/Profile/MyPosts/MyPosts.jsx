@@ -12,8 +12,8 @@ const MyPosts = (props) => {
                 <button>Add post</button>
             </div>
             <div className={classes.posts}>
-                <Post message='Hi, how are you?' likes='4'/>
-                <Post message='This is my first post' likes='199'/>
+                <Post message='Hi, how are you?' likesCount='4'/>
+                <Post message='This is my first post' likesCount='199'/>
             </div>
         </div>
     );
