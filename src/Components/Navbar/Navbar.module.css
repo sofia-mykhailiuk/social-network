@@ -1,6 +1,7 @@
 .nav {
     grid-area: n;
     background-color: #e1e1e1;
+    border-radius: 5px;
 }
 
 .item {

@@ -1,5 +1,5 @@
-import LOGO from "../LOGO-SM.png";
-import classes from  './Header.module.css';
+import LOGO from "../../LOGO-SM.png";
+import classes from './Header.module.css';
 
 const Header = () => {
     return (
