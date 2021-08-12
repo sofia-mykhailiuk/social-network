@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  /*backdrop-filter: blur( 7.5px );*/
+  background-image: url("./08.-Violet-Blue.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}

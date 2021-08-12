@@ -1,10 +1,10 @@
-import classes from './Profile.css'
+import classes from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = () => {
     return (
-        <div>
+        <div className={classes.allContent}>
             <ProfileInfo/>
             <MyPosts/>
         </div>

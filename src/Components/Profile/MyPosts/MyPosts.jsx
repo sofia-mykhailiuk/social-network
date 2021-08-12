@@ -27,6 +27,17 @@ const MyPosts = (props) => {
                 {/*<Post message='Hi, how are you?' likesCount='4'/>*/}
                 <Post message={postData[0].message} likesCount={postData[0].likesCount}/>
                 <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[2].message} likesCount={postData[1].likesCount}/>
+                <Post message={postData[3].message} likesCount={postData[1].likesCount}/>
+
             </div>
         </div>
     );
