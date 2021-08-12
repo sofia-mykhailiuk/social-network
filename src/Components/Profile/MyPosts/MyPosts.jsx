@@ -5,12 +5,14 @@ import Post from "./Post/Post";
 const MyPosts = (props) => {
     // debugger;
 
-    let postData = [
+    let posts = [
         {id: '1', message: 'Hi, how are you?', likesCount: 4},
         {id: '2', message: 'This is my first post', likesCount: 199},
-        {id: '3', message: 'What`s up'},
-        {id: '4', message: 'Yo'}
+        {id: '3', message: 'What`s up', likesCount: 13},
+        {id: '4', message: 'Yo', likesCount: 1}
     ]
+
+    let postsElement = posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div className={classes.postsBlock}>
@@ -25,19 +27,13 @@ const MyPosts = (props) => {
             </div>
             <div className={classes.posts}>
                 {/*<Post message='Hi, how are you?' likesCount='4'/>*/}
-                <Post message={postData[0].message} likesCount={postData[0].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[2].message} likesCount={postData[1].likesCount}/>
-                <Post message={postData[3].message} likesCount={postData[1].likesCount}/>
 
+                {/*<Post message={posts[0].message} likesCount={posts[0].likesCount}/>
+                <Post message={posts[1].message} likesCount={posts[1].likesCount}/>
+                <Post message={posts[2].message} likesCount={posts[1].likesCount}/>
+                <Post message={posts[3].message} likesCount={posts[1].likesCount}/>*/}
+
+                {postsElement}
             </div>
         </div>
     );

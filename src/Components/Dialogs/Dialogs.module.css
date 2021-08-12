@@ -1,18 +1,27 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10.0px);
+    -webkit-backdrop-filter: blur(20.0px);
+    border-radius: 10px;
+    /*border: 1px solid rgba(255, 255, 255, 0.18);*/
+
 }
 
 .dialogsItems {
-    padding: 10px;
+    padding: 20px;
 }
+
 
 .active {
     color: #075760;
 }
 
 .messages {
-    padding: 10px;
+    padding: 20px;
+    color: white;
 }
 
 .messages .message {

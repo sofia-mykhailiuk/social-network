@@ -9,14 +9,7 @@ const ProfileInfo = () => {
                     alt=""/>
             </div>
             <div className={classes.descriptionBlock}>
-                ava+
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                description
+                ava+description
             </div>
         </div>
     )
