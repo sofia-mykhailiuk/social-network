@@ -13,7 +13,7 @@ import {NavLink} from "react-router-dom";
 // // let classes = class1 + ' ' + class2
 // let classes = `${class1} ${class2}`
 
-console.log(classes)
+// console.log(classes)
 
 const Navbar = () => {
     return (
