@@ -24,7 +24,8 @@ let posts = [
     {id: '1', message: 'Hi, how are you?', likesCount: 4},
     {id: '2', message: 'This is my first post', likesCount: 199},
     {id: '3', message: 'What`s up', likesCount: 13},
-    {id: '4', message: 'Yo', likesCount: 1}
+    {id: '4', message: 'Yo', likesCount: 1},
+    {id: '5', message: 'Youufuffu', likesCount: 1}
 ]
 
 ReactDOM.render(
