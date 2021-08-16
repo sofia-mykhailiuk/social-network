@@ -11,39 +11,20 @@ const Dialogs = (props) => {
     // ]
 
     // let dialog =
-    let dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
-    let messagesElement = props.messages.map(m => <Message message={m.message}/>)
+    let dialogsElements = props.state.dialogs.map(d => <DialogItem state={d}/>)
+    let messagesElement = props.state.messages.map(m => <Message message={m} currentUser={props.currentUser}/>)
 
     return (
-        <div className={classes.dialogs}>
-            <div className={classes.dialogsItems}>
-                {/*<div className={classes.dialog + ' ' + classes.active}>*/}
-                {/*    <NavLink to='/dialogs/1'>Sofia</NavLink>*/}
-                {/*</div>*/}
-
-                {/*<DialogItem name='Maria' id='2'/>*/}
-
-                {/*<DialogItem name={dialogs[0].name} id={dialogs[0].id}/>
-                <DialogItem name={dialogs[1].name} id={dialogs[1].id}/>
-                <DialogItem name={dialogs[2].name} id={dialogs[2].id}/>
-                <DialogItem name={dialogs[3].name} id={dialogs[3].id}/>
-                <DialogItem name={dialogs[4].name} id={dialogs[4].id}/>
-                <DialogItem name={dialogs[5].name} id={dialogs[5].id}/>*/}
-
-                {dialogsElements}
-
-
+        <div className={classes.back}>
+            <div className={classes.dialogs}>
+                <div className={classes.dialogsItems}>
+                    {dialogsElements}
+                </div>
+                <div className={classes.messages}>
+                    {messagesElement}
+                </div>
             </div>
-            <div className={classes.messages}>
-                {/*<Message message='Hi'></Message>*/}
 
-                {/*<Message message={messages[0].message}></Message>*/}
-                {/*<Message message={messages[1].message}></Message>*/}
-                {/*<Message message={messages[2].message}></Message>*/}
-
-                {messagesElement}
-
-            </div>
         </div>
     )
 }
