@@ -1,18 +1,12 @@
-.dialog {
+.friend {
     display: flex;
+    flex-direction: column;
+    /*padding-right: 5px;*/
+    padding-bottom: 5px;
     align-items: center;
-    margin-bottom: 10px;
 
+    font-size: 12px;
 
-}
-.dialog a{
-    padding-left: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-.dialog a.active{
-    color: darkmagenta;
 }
 
 .userAvatar {
@@ -20,8 +14,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
 }
 .userAvatar img {
