@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    padding: 7px;
+    padding: 7px 10px;
     width: max-content;
     background: rgba( 255, 255, 255, 1);
     box-shadow: 0 8px 25px 0 rgba( 31, 38, 135, 0.4 );
@@ -13,13 +13,18 @@
 }
 
 .messageText {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 7px;
+
 }
 
 .rightMessage {
     align-self: flex-end;
     flex-direction: row-reverse;
+}
+
+.rightMessage .messageText {
+    padding-right: 7px;
+    padding-left: 0px;
 }
 
 .userAvatar {
