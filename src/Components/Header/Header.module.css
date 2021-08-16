@@ -6,7 +6,11 @@
     -webkit-backdrop-filter: blur( 20px );
     border-radius: 10px;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
+    padding: 10px   20px;
+    color: black;
+    height: 45px;
 }
 .currentUser {
     padding-left: 15px;
@@ -19,7 +23,7 @@
 }
 
 .currentUser img {
-    width: 50px;
-    height: auto;
+    width: auto;
+    height: 45px;
     border-radius: 50%;
 }

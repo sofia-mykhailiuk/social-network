@@ -9,9 +9,18 @@
     margin-bottom: 10px;
 }
 
-.item img {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
+.post {
+    display: flex;
+    align-items: center;
+}
+
+.post span{
+    padding-left: 10px;
+}
+
+.post img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
 
 }
