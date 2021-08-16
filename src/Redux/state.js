@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     currentUser: {
         id: '0',
@@ -53,7 +55,11 @@ let state = {
             }
         ],
         messages: [
-            {id: '1', message: 'Hi', authorId: '0'},
+            {
+                id: '1',
+                message: 'Hi',
+                authorId: '0'
+            },
             {
                 id: '2',
                 message: 'How are you?',
@@ -68,6 +74,23 @@ let state = {
                 authorId: '1',
                 name: 'Andrei',
                 img: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+            },
+            {
+                id: '5',
+                message: 'What about weather?',
+                authorId: '0'
+            },
+            {
+                id: '6',
+                message: 'I know nothing about weather',
+                authorId: '1',
+                name: 'Andrei',
+                img: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+            },
+            {
+                id: '7',
+                message: 'That`s sad',
+                authorId: '0'
             }
         ]
     },
@@ -111,6 +134,17 @@ let state = {
             }
         ]
     }
-
 }
+
+export let addPost = (postMessage) => {
+
+    let newPost = {
+        id: '5',
+        message: postMessage,
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state);
+}
+
 export default state
