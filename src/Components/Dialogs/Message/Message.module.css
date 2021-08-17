@@ -9,12 +9,16 @@
     backdrop-filter: blur( 10.0px );
     -webkit-backdrop-filter: blur( 20.0px );
     border-radius: 10px;
-    align-self: end;
+    align-self: flex-start;
+    text-wrap: inherit;
+
 }
 
 .messageText {
     padding-left: 7px;
-
+    width: max-content;
+    max-width: 400px;
+    word-wrap: break-word;
 }
 
 .rightMessage {
@@ -24,10 +28,11 @@
 
 .rightMessage .messageText {
     padding-right: 7px;
-    padding-left: 0px;
+    padding-left: 7px;
 }
 
 .userAvatar {
+    align-self: end;
     overflow: hidden;
     display: flex;
     justify-content: center;

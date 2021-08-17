@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+    console.log('state was changed')
+}
 
 let state = {
     currentUser: {
@@ -138,12 +140,12 @@ let state = {
     }
 };
 
-export let updateNewPostValue = (text) => {
+export const updateNewPostValue = (text) => {
     state.profilePage.postValue=text;
     rerenderEntireTree(state);
 };
 
-export let addPost = () => {
+export const addPost = () => {
     let lastId = state.profilePage.posts.length;
 
     let newPost = {
@@ -157,12 +159,12 @@ export let addPost = () => {
     rerenderEntireTree(state);
 };
 
-export let updateNewMessageValue = (value) => {
+export const updateNewMessageValue = (value) => {
     state.messagesPage.newMessageValue=value;
     rerenderEntireTree(state)
 }
 
-export let sendMessage = () => {
+export const sendMessage = () => {
     let lastId = state.messagesPage.messages.length
 
     let newMessage = {
@@ -176,5 +178,10 @@ export let sendMessage = () => {
     rerenderEntireTree(state)
 }
 
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer; // наглядач // observer // publisher-subscriber
+}
 
-export default state
+export default state;
+
+// state - OOP
