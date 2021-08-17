@@ -8,6 +8,7 @@ let state = {
         img: 'https://avatars.githubusercontent.com/u/88670730?v=4'
     },
     profilePage: {
+        postValue: '',
         posts: [
             {id: '1', message: 'Hi, how are you?', likesCount: 4},
             {id: '2', message: 'This is my first post', likesCount: 199},
@@ -92,7 +93,8 @@ let state = {
                 message: 'That`s sad',
                 authorId: '0'
             }
-        ]
+        ],
+        newMessageValue: ''
     },
     sidebar: {
         friends: [
@@ -134,17 +136,45 @@ let state = {
             }
         ]
     }
-}
+};
 
-export let addPost = (postMessage) => {
+export let updateNewPostValue = (text) => {
+    state.profilePage.postValue=text;
+    rerenderEntireTree(state);
+};
+
+export let addPost = () => {
+    let lastId = state.profilePage.posts.length;
 
     let newPost = {
-        id: '5',
-        message: postMessage,
+        id: (++lastId).toString(),
+        message: state.profilePage.postValue,
         likesCount: 0
     };
+
     state.profilePage.posts.push(newPost);
+    state.profilePage.postValue='';
     rerenderEntireTree(state);
+};
+
+export let updateNewMessageValue = (value) => {
+    state.messagesPage.newMessageValue=value;
+    rerenderEntireTree(state)
 }
+
+export let sendMessage = () => {
+    let lastId = state.messagesPage.messages.length
+
+    let newMessage = {
+        id: (++lastId).toString(),
+        message: state.messagesPage.newMessageValue,
+        authorId: '0'
+    };
+
+    state.messagesPage.messages.push(newMessage);
+    state.messagesPage.newMessageValue='';
+    rerenderEntireTree(state)
+}
+
 
 export default state

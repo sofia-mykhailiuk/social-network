@@ -20,12 +20,15 @@ const App = (props) => {
                            render={() => <Profile
                                state={props.state.profilePage}
                                currentUser={props.state.currentUser}
+                               updateNewPostValue={props.updateNewPostValue}
                                addPost={props.addPost}
                            />}/>
                     <Route path='/dialogs'
                            render={() => <Dialogs
                                state={props.state.messagesPage}
                                currentUser={props.state.currentUser}
+                               updateNewMessageValue={props.updateNewMessageValue}
+                               sendMessage={props.sendMessage}
                            />}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>

@@ -1,12 +1,13 @@
 import classes from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import {updateNewPostValue} from "../../Redux/state";
 
 const Profile = (props) => {
     return (
         <div className={classes.allContent}>
             <ProfileInfo state={props.state}/>
-            <MyPosts posts={props.state.posts} state={props.currentUser} addPost={props.addPost}/>
+            <MyPosts state={props.state} currentUser={props.currentUser} addPost={props.addPost} updateNewPostValue={props.updateNewPostValue}/>
         </div>
     );
 }
