@@ -11,24 +11,26 @@ import {Route} from "react-router-dom";
 
 
 const App = (props) => {
+
         return (
             <div className='app-wrapper'>
-                <Header state={props.state.currentUser}/>
-                <Navbar state={props.state.sidebar}/>
+                <Header state={props.state.currentUser} />
+                <Navbar state={props.state.sidebar} />
                 <div className='app-wrapper-content'>
                     <Route path='/profile'
                            render={() => <Profile
                                state={props.state.profilePage}
                                currentUser={props.state.currentUser}
-                               updateNewPostValue={props.updateNewPostValue}
-                               addPost={props.addPost}
+                               updateNewPostValue={props.store.updateNewPostValue.bind(props.store)}
+                               addPost={props.store.addPost.bind(props.store)}
+
                            />}/>
                     <Route path='/dialogs'
                            render={() => <Dialogs
                                state={props.state.messagesPage}
                                currentUser={props.state.currentUser}
-                               updateNewMessageValue={props.updateNewMessageValue}
-                               sendMessage={props.sendMessage}
+                               updateNewMessageValue={props.store.updateNewMessageValue.bind(props.store)}
+                               sendMessage={props.store.sendMessage.bind(props.store)}
                            />}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
@@ -41,6 +43,7 @@ const App = (props) => {
             </div>
     );
 }
+
 
 
 export default App;

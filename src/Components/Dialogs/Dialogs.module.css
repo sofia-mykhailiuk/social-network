@@ -1,3 +1,8 @@
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+
 .back {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -5,54 +10,69 @@
     -webkit-backdrop-filter: blur(20.0px);
     border-radius: 10px;
     padding: 20px;
+    height: 78vh;
 }
 
 .dialogs {
-    display: grid;
-    grid-template-columns: 3fr 7fr;
+    display: flex;
     background: rgba(255, 255, 255, 0.4);
-    /*box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);*/
-    /*backdrop-filter: blur(10.0px);*/
-    /*-webkit-backdrop-filter: blur(20.0px);*/
     border-radius: 10px;
+    height: 78vh;
 }
 
 .dialogsItems {
-    padding: 20px;
+    padding: 2.7vh;
     background: rgba(255, 255, 255, 1);
     border-radius: 10px 0px 0px 10px;
+    height: 72.5vh;
+    width: 30vh;
 }
 
 .active {
     color: #075760;
 }
 
-.messages {
-    padding: 10px 20px 10px 20px;
-    border-radius: 0px 10px 10px 0px;
+.dialog {
     display: flex;
-    flex-direction: column;
-    align-self: flex-end;
+    flex-direction: column ;
+    align-items: center;
 }
 
+.messages {
+    width: 91vh;
+    max-height: 72.5vh;
+    padding: 1.3vh 2.7vh;
+    border-radius: 0px 10px 0px 0px;
+    display: flex;
+    /*flex-direction: column;*/
+    flex-direction: column-reverse;
+    align-self: flex-end;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /*justify-content: flex-end;*/
+}
+
+
 .addMessage {
-    margin-bottom: 10px;
-    padding: 20px;
-    width: max-content;
+    width: 91vh;
+    margin: 0vh 2.7vh 1.3vh 2.7vh;
+    height: 15vh;
+    padding: 2.7vh;
+    box-sizing: border-box;
     background: rgba( 255, 255, 255, 1);
     box-shadow: 0 8px 25px 0 rgba( 31, 38, 135, 0.4 );
     backdrop-filter: blur( 10.0px );
     -webkit-backdrop-filter: blur( 20.0px );
     border-radius: 10px;
-    width: 585px;
-    height: 60px;
+
     display: grid;
     grid-template-columns: 11fr 1fr;
 
 }
 
 .messageInput {
-    width: 100%;
+    /*width: 100%;*/
     height: 60px;
 
 }
@@ -71,9 +91,7 @@
 }
 
 .sendButton {
-    /*background: rgba( 220, 220, 220, 0.1);*/
     padding-left: 10px;
-    /*border-radius: 0px 10px 10px 0px;*/
 }
 .sendButton button{
     border: none;
