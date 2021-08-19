@@ -13,11 +13,15 @@ const Dialogs = (props) => {
     let updateNewMessageValue = (event) => {
         // debugger;
         let value = event.target.value
-        props.updateNewMessageValue(value)
+        // props.updateNewMessageValue(value)
+        let action = {type: 'UPDATE-NEW-MESSAGE-VALUE', text: `${value}`};
+        props.dispatch(action)
     }
 
     let sendMessage = () => {
-        props.sendMessage()
+        // props.sendMessage()
+        let action = {type: 'SEND-MESSAGE'};
+        props.dispatch(action)
     }
 
     return (

@@ -8,11 +8,15 @@ const MyPosts = (props) => {
 
     let onChangeValue = (event) => {
         let newValue = event.target.value;
-        props.updateNewPostValue(newValue)
+        // props.updateNewPostValue(newValue);
+        let action = {type: 'UPDATE-NEW-POST-VALUE', text: newValue};
+        props.dispatch(action);
     }
 
     let addPost = () => {
-        props.addPost();
+        // props.addPost();
+        let action = {type: 'ADD-POST'};
+        props.dispatch(action)
     }
 
     return (
