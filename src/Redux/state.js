@@ -1,6 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_VALUE = 'UPDATE-NEW-POST-VALUE';
-const UPDATE_NEW_MESSAGE_VALUE = 'UPDATE-NEW-MESSAGE-VALUE';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let store = {
@@ -98,7 +98,7 @@ let store = {
                     authorId: '0'
                 }
             ],
-            newMessageValue: ''
+            newMessageBody: ''
         },
         sidebar: {
             friends: [
@@ -168,8 +168,8 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.postValue = '';
             this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_VALUE) {
-            this._state.messagesPage.newMessageValue = action.text;
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.messagesPage.newMessageBody = action.text;
             this._callSubscriber(this._state)
         } else if (action.type === SEND_MESSAGE) {
 
@@ -177,12 +177,12 @@ let store = {
 
             let newMessage = {
                 id: (++lastId).toString(),
-                message: this._state.messagesPage.newMessageValue,
+                message: this._state.messagesPage.newMessageBody,
                 authorId: '0'
             };
 
             this._state.messagesPage.messages.push(newMessage);
-            this._state.messagesPage.newMessageValue = '';
+            this._state.messagesPage.newMessageBody = '';
             this._callSubscriber(this._state)
         }
     }
@@ -195,7 +195,7 @@ export const updateNewPostValueActionCreator = (newValue) =>
 
 export const addPostActionCreator = () => ({type: ADD_POST});
 
-export const updateNewMessageValueActionCreator = (value) =>
-    ({type: UPDATE_NEW_MESSAGE_VALUE, text: value});
+export const updateNewMessageBodyActionCreator = (value) =>
+    ({type: UPDATE_NEW_MESSAGE_BODY, text: value});
 
 export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
