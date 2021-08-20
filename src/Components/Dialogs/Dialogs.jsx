@@ -1,12 +1,11 @@
 import classes from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {NavLink} from "react-router-dom";
 import React from "react";
-import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../Redux/state";
+import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
-    let state = props.store.getState().messagesPage
+    let state = props.store.getState().dialogsPage
     let currentUser = props.store.getState().currentUser
 
     let dialogsElements = state.dialogs.map(d => <DialogItem state={d}/>)

@@ -1,7 +1,7 @@
 import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from "react";
-import {addPostActionCreator, updateNewPostValueActionCreator} from "../../../Redux/state";
+import {addPostActionCreator, updateNewPostValueActionCreator} from "../../../Redux/profile-reducer";
 
 
 const MyPosts = (props) => {
@@ -11,7 +11,6 @@ const MyPosts = (props) => {
 
     let onChangeNewPostValue = (event) => {
         let newValue = event.target.value;
-        // let action = {type: 'UPDATE-NEW-POST-VALUE', text: newValue};
         let action = updateNewPostValueActionCreator(newValue)
         props.dispatch(action);
     };
@@ -27,7 +26,6 @@ const MyPosts = (props) => {
             <div>
                 <div>
                     <textarea onChange={onChangeNewPostValue}
-                              cols="100" rows="3"
                               value={props.state.postValue}>
                     </textarea>
                 </div>
