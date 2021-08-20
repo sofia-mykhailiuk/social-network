@@ -5,12 +5,8 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 const Profile = (props) => {
     return (
         <div className={classes.allContent}>
-            <ProfileInfo state={props.state}/>
-            <MyPosts state={props.state}
-                     currentUser={props.currentUser}
-                     addPost={props.addPost}
-                     updateNewPostValue={props.updateNewPostValue}/>
-
+            <ProfileInfo/>
+            <MyPosts posts={props.posts}/>
         </div>
     );
 }

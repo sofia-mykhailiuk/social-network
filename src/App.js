@@ -6,44 +6,28 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import Friends from "./Components/Friends/Friends";
-import {Route} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 
 
 const App = (props) => {
-
         return (
+        <BrowserRouter>
             <div className='app-wrapper'>
-                <Header state={props.state.currentUser} />
-                <Navbar state={props.state.sidebar} />
+                <Header/>
+                <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/profile'
-                           render={() => <Profile
-                               state={props.state.profilePage}
-                               currentUser={props.state.currentUser}
-                               updateNewPostValue={props.store.updateNewPostValue.bind(props.store)}
-                               addPost={props.store.addPost.bind(props.store)}
-
-                           />}/>
-                    <Route path='/dialogs'
-                           render={() => <Dialogs
-                               state={props.state.messagesPage}
-                               currentUser={props.state.currentUser}
-                               updateNewMessageValue={props.store.updateNewMessageValue.bind(props.store)}
-                               sendMessage={props.store.sendMessage.bind(props.store)}
-                           />}/>
+                    <Route path='/profile' render={() => <Profile posts={props.posts}/>}/>
+                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
-                    <Route path='/friends' component={Friends}/>
-
                     {/*<Dialogs />*/}
                     {/*<Profile/>*/}
                 </div>
             </div>
+        </BrowserRouter>
     );
 }
-
 
 
 export default App;

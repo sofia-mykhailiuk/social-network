@@ -1,30 +1,8 @@
-.dialog {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-
-
-}
 .dialog a{
-    padding-left: 10px;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .dialog a.active{
     color: darkmagenta;
-}
-
-.userAvatar {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-}
-.userAvatar img {
-    width: auto;
-    height: 100%;
 }
