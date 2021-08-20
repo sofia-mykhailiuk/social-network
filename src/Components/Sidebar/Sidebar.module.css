@@ -1,0 +1,7 @@
+.sidebar {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 158px;
+    justify-content: space-between;
+}

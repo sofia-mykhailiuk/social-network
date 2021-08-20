@@ -1,30 +1,32 @@
 import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
+import React from "react";
 
 
 const MyPosts = (props) => {
-    // debugger;
-    let postsElement = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let postsElement = props.state.posts.map(p => <Post state={props.currentUser} message={p.message} likesCount={p.likesCount}/>)
+
+    let onChangeValue = (event) => {
+        let newValue = event.target.value;
+        props.updateNewPostValue(newValue)
+    }
+
+    let addPost = () => {
+        props.addPost();
+    }
 
     return (
         <div className={classes.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea name="" id="" cols="100" rows="3">New post</textarea>
+                    <textarea onChange={onChangeValue} cols="100" rows="3" value={props.state.postValue}></textarea>
                 </div>
                 <div>
-                    <button>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={classes.posts}>
-                {/*<Post message='Hi, how are you?' likesCount='4'/>*/}
-
-                {/*<Post message={posts[0].message} likesCount={posts[0].likesCount}/>
-                <Post message={posts[1].message} likesCount={posts[1].likesCount}/>
-                <Post message={posts[2].message} likesCount={posts[1].likesCount}/>
-                <Post message={posts[3].message} likesCount={posts[1].likesCount}/>*/}
-
                 {postsElement}
             </div>
         </div>

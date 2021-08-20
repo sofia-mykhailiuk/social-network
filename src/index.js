@@ -1,40 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './Redux/state';
+import ReactDOM from "react-dom";
+import {BrowserRouter} from "react-router-dom";
+import App from "./App";
 
-let dialogs = [
-    {id: '1', name: 'Andrei'},
-    {id: '2', name: 'Dimych'},
-    {id: '3', name: 'Maria'},
-    {id: '4', name: 'Sveta'},
-    {id: '5', name: 'Olha'},
-    {id: '6', name: 'Katya'},
-]
 
-let messages = [
-    {id: '1', message: 'Hi'},
-    {id: '2', message: 'How are you?'},
-    {id: '3', message: 'What`s up'},
-    {id: '4', message: 'Yo'}
-]
 
-let posts = [
-    {id: '1', message: 'Hi, how are you?', likesCount: 4},
-    {id: '2', message: 'This is my first post', likesCount: 199},
-    {id: '3', message: 'What`s up', likesCount: 13},
-    {id: '4', message: 'Yo', likesCount: 1}
-]
+let rerenderEntireTree = (state) => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App store={store} state={state}/>
+            </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById('root')
+    )
+};
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App dialogs={dialogs} messages={messages} posts={posts}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+rerenderEntireTree(store.getState());
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+store.subscribe(rerenderEntireTree);
+
+
+
 reportWebVitals();
