@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_VALUE = 'UPDATE-NEW-POST-VALUE';
+const UPDATE_NEW_MESSAGE_VALUE = 'UPDATE-NEW-MESSAGE-VALUE';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+
 let store = {
     _state: {
         currentUser: {
@@ -148,10 +153,10 @@ let store = {
     },
 
     dispatch(action) { // { type: 'ADD-POST' }
-        if (action.type === 'UPDATE-NEW-POST-VALUE') {
+        if (action.type === UPDATE_NEW_POST_VALUE) {
             this._state.profilePage.postValue = action.text;
             this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-POST') {
+        } else if (action.type === ADD_POST) {
             let lastId = this._state.profilePage.posts.length;
 
             let newPost = {
@@ -163,11 +168,11 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.postValue = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-VALUE') {
+        } else if (action.type === UPDATE_NEW_MESSAGE_VALUE) {
             this._state.messagesPage.newMessageValue = action.text;
             this._callSubscriber(this._state)
-        } else if (action.type === 'SEND-MESSAGE') {
-            debugger;
+        } else if (action.type === SEND_MESSAGE) {
+
             let lastId = this._state.messagesPage.messages.length
 
             let newMessage = {
@@ -181,9 +186,16 @@ let store = {
             this._callSubscriber(this._state)
         }
     }
-
 };
 export default store
 window.store = store;
 
-// state - OOP
+export const updateNewPostValueActionCreator = (newValue) =>
+    ({type: UPDATE_NEW_POST_VALUE, text: newValue});
+
+export const addPostActionCreator = () => ({type: ADD_POST});
+
+export const updateNewMessageValueActionCreator = (value) =>
+    ({type: UPDATE_NEW_MESSAGE_VALUE, text: value});
+
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});

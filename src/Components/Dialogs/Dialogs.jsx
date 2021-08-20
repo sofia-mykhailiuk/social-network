@@ -3,24 +3,25 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {NavLink} from "react-router-dom";
 import React from "react";
+import {sendMessageActionCreator, updateNewMessageValueActionCreator} from "../../Redux/state";
 
 const Dialogs = (props) => {
 
     let dialogsElements = props.state.dialogs.map(d => <DialogItem state={d}/>)
-    let messagesElement = props.state.messages.map(m => <Message message={m} currentUser={props.currentUser}/>).reverse()
+    let messagesElement = props.state.messages.map(m => <Message message={m}
+                                                                 currentUser={props.currentUser}/>).reverse()
+
+
 
 
     let updateNewMessageValue = (event) => {
-        // debugger;
         let value = event.target.value
-        // props.updateNewMessageValue(value)
-        let action = {type: 'UPDATE-NEW-MESSAGE-VALUE', text: `${value}`};
+        let action = updateNewMessageValueActionCreator(value)
         props.dispatch(action)
     }
 
     let sendMessage = () => {
-        // props.sendMessage()
-        let action = {type: 'SEND-MESSAGE'};
+        let action = sendMessageActionCreator();
         props.dispatch(action)
     }
 

@@ -1,30 +1,35 @@
 import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from "react";
+import {addPostActionCreator, updateNewPostValueActionCreator} from "../../../Redux/state";
 
 
 const MyPosts = (props) => {
-    let postsElement = props.state.posts.map(p => <Post state={props.currentUser} message={p.message} likesCount={p.likesCount}/>)
+    let postsElement = props.state.posts.map(p => <Post state={props.currentUser}
+                                                        message={p.message}
+                                                        likesCount={p.likesCount}/>);
 
-    let onChangeValue = (event) => {
+    let onChangeNewPostValue = (event) => {
         let newValue = event.target.value;
-        // props.updateNewPostValue(newValue);
-        let action = {type: 'UPDATE-NEW-POST-VALUE', text: newValue};
+        // let action = {type: 'UPDATE-NEW-POST-VALUE', text: newValue};
+        let action = updateNewPostValueActionCreator(newValue)
         props.dispatch(action);
-    }
+    };
 
     let addPost = () => {
-        // props.addPost();
-        let action = {type: 'ADD-POST'};
-        props.dispatch(action)
-    }
+        let action = addPostActionCreator()
+        props.dispatch(action);
+    };
 
     return (
         <div className={classes.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onChangeValue} cols="100" rows="3" value={props.state.postValue}></textarea>
+                    <textarea onChange={onChangeNewPostValue}
+                              cols="100" rows="3"
+                              value={props.state.postValue}>
+                    </textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
