@@ -1,3 +1,7 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
 let store = {
     _state: {
         currentUser: {
@@ -15,7 +19,7 @@ let store = {
                 {id: '4', message: 'Yo', likesCount: 1}
             ]
         },
-        messagesPage: {
+        dialogsPage: {
             dialogs: [
                 {
                     id: '1',
@@ -93,7 +97,7 @@ let store = {
                     authorId: '0'
                 }
             ],
-            newMessageValue: ''
+            newMessageBody: ''
         },
         sidebar: {
             friends: [
@@ -144,46 +148,18 @@ let store = {
         this._callSubscriber = observer; // наглядач // observer // publisher-subscriber
     },
     getState() {
-        return this._state
+          return this._state
     },
 
     dispatch(action) { // { type: 'ADD-POST' }
-        if (action.type === 'UPDATE-NEW-POST-VALUE') {
-            this._state.profilePage.postValue = action.text;
-            this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-POST') {
-            let lastId = this._state.profilePage.posts.length;
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
-            let newPost = {
-                id: (++lastId).toString(),
-                message: this._state.profilePage.postValue,
-                likesCount: 0
-            };
-
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.postValue = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-VALUE') {
-            this._state.messagesPage.newMessageValue = action.text;
-            this._callSubscriber(this._state)
-        } else if (action.type === 'SEND-MESSAGE') {
-            debugger;
-            let lastId = this._state.messagesPage.messages.length
-
-            let newMessage = {
-                id: (++lastId).toString(),
-                message: this._state.messagesPage.newMessageValue,
-                authorId: '0'
-            };
-
-            this._state.messagesPage.messages.push(newMessage);
-            this._state.messagesPage.newMessageValue = '';
-            this._callSubscriber(this._state)
-        }
+        this._callSubscriber(this._state)
     }
 
 };
+
 export default store
 window.store = store;
-
-// state - OOP
