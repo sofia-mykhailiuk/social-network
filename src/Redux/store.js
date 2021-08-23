@@ -11,13 +11,7 @@ let store = {
             img: 'https://avatars.githubusercontent.com/u/88670730?v=4'
         },
         profilePage: {
-            postValue: '',
-            posts: [
-                {id: '1', message: 'Hi, how are you?', likesCount: 4},
-                {id: '2', message: 'This is my first post', likesCount: 199},
-                {id: '3', message: 'What`s up', likesCount: 13},
-                {id: '4', message: 'Yo', likesCount: 1}
-            ]
+
         },
         dialogsPage: {
             dialogs: [
@@ -25,7 +19,7 @@ let store = {
                     id: '1',
                     name: 'Andrei',
                     surname: 'Kihtan',
-                    img: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+                    img: 'https://images.unsplash.com/photo-1567515004624-219c11d31f2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTAxMjM2NHx8ZW58MHx8fHw%3D&w=1000&q=80'
                 },
                 {
                     id: '2',
@@ -69,7 +63,7 @@ let store = {
                     message: 'How are you?',
                     authorId: '1',
                     name: 'Andrei',
-                    img: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+                    img: 'https://images.unsplash.com/photo-1567515004624-219c11d31f2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTAxMjM2NHx8ZW58MHx8fHw%3D&w=1000&q=80'
                 },
                 {id: '3', message: 'What`s up', authorId: '0'},
                 {
@@ -77,7 +71,7 @@ let store = {
                     message: 'Yo',
                     authorId: '1',
                     name: 'Andrei',
-                    img: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+                    img: 'https://images.unsplash.com/photo-1567515004624-219c11d31f2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTAxMjM2NHx8ZW58MHx8fHw%3D&w=1000&q=80'
                 },
                 {
                     id: '5',
@@ -89,7 +83,7 @@ let store = {
                     message: 'I know nothing about weather',
                     authorId: '1',
                     name: 'Andrei',
-                    img: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+                    img: 'https://images.unsplash.com/photo-1567515004624-219c11d31f2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTAxMjM2NHx8ZW58MHx8fHw%3D&w=1000&q=80'
                 },
                 {
                     id: '7',
@@ -105,7 +99,7 @@ let store = {
                     id: '1',
                     name: 'Andrei',
                     surname: 'Kihtan',
-                    img: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+                    img: 'https://images.unsplash.com/photo-1567515004624-219c11d31f2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTAxMjM2NHx8ZW58MHx8fHw%3D&w=1000&q=80'
                 },
                 {
                     id: '2',
@@ -141,7 +135,8 @@ let store = {
         }
     },
     _callSubscriber() {
-        this.getSubscriber();
+        // this.getSubscriber()
+        console.log(this)
     },
 
     subscribe(observer) {
