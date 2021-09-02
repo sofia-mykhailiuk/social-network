@@ -2,53 +2,47 @@ import classes from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
-import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
-    let state = props.store.getState().dialogsPage
-    let currentUser = props.store.getState().currentUser
 
-    let dialogsElements = state.dialogs.map(d => <DialogItem state={d}/>)
-    let messagesElement = state.messages.map(m => <Message message={m}
-                                                           currentUser={currentUser}/>).reverse()
+  let dialogsElements = props.dialogsPage.dialogs.map((d) => <DialogItem state={d} />);
+  let messagesElement = props.dialogsPage.messages
+    .map((m) => <Message message={m} currentUser={props.currentUser} />)
+    .reverse();
 
-    let onNewMessageChange = (event) => {
-        let value = event.target.value
-        let action = updateNewMessageBodyActionCreator(value)
-        props.store.dispatch(action)
-    }
+  let onNewMessageChange = (event) => {
+    let value = event.target.value;
+    props.updateNewMessageBody(value);
+  };
 
-    let onSendMessageClick = () => {
-        let action = sendMessageActionCreator();
-        props.store.dispatch(action)
-    }
+  let onSendMessageClick = () => {
+    props.sendMessage();
+  };
 
-    return (
-        <div className={classes.back}>
-            <div className={classes.dialogs}>
-                <div className={classes.dialogsItems}>
-                    {dialogsElements}
-                </div>
+  return (
+    <div className={classes.back}>
+      <div className={classes.dialogs}>
+        <div className={classes.dialogsItems}>{dialogsElements}</div>
 
-                <div className={classes.dialog}>
-                    <div className={classes.messages}>
-                        {messagesElement}
-                    </div>
+        <div className={classes.dialog}>
+          <div className={classes.messages}>{messagesElement}</div>
 
-                    <div className={classes.addMessage}>
-                        <div className={classes.messageInput}>
-                            <textarea placeholder='Click here to start typing...' onChange={onNewMessageChange}
-                                      value={state.newMessageBody}>
-                            </textarea>
-                        </div>
-                        <div className={classes.sendButton}>
-                            <button onClick={onSendMessageClick}>Send</button>
-                        </div>
-                    </div>
-                </div>
+          <div className={classes.addMessage}>
+            <div className={classes.messageInput}>
+              <textarea
+                placeholder="Click here to start typing..."
+                onChange={onNewMessageChange}
+                value={props.newMessageBody}
+              ></textarea>
             </div>
+            <div className={classes.sendButton}>
+              <button onClick={onSendMessageClick}>Send</button>
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default Dialogs
