@@ -10,6 +10,7 @@ import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 
 const App = (props) => {
+
   return (
     <div className="app-wrapper">
       <HeaderContainer />
@@ -24,6 +25,6 @@ const App = (props) => {
       </div>
     </div>
   );
-};
+};;
 
 export default App;
