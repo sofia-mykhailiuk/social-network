@@ -1,16 +1,16 @@
-import StoreContext from "../../StoreContext";
 import Header from "./Header";
-import classes from "./Header.module.css";
+import { connect } from "react-redux";
 
-const HeaderContainer = (props) => {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState();
-        return <Header currentUser={state.currentUser} />;
-      }}
-    </StoreContext.Consumer>
-  );
+let mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+  };
 };
+
+let mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
 
 export default HeaderContainer;

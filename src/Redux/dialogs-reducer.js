@@ -95,8 +95,7 @@ const dialogsReducer = (state = initialState, action) => {
                 authorId: '0'
             };
             state.messages.push(newMessage);
-            state.newMessageBody = '';
-            console.log(state.newMessageBody);
+            state.newMessageBody = "";
             return state;
         default:
             return state;
