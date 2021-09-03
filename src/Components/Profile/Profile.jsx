@@ -1,17 +1,14 @@
-import classes from './Profile.module.css'
-import MyPosts from "./MyPosts/MyPosts";
+import classes from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
-    return (
-        <div className={classes.allContent}>
-            <ProfileInfo state={props.state}/>
-            <MyPosts state={props.state}
-                     currentUser={props.currentUser}
-                     dispatch={props.dispatch}/>
+  return (
+    <div className={classes.allContent}>
+      <ProfileInfo state={props.getState} />
+      <MyPostsContainer store={props.store} />
+    </div>
+  );
+};
 
-        </div>
-    );
-}
-
-export default Profile
+export default Profile;
