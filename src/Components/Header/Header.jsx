@@ -1,15 +1,17 @@
-import classes from './Header.module.css';
+import classes from "./Header.module.css";
 
 const Header = (props) => {
-    return (
-        <header className={classes.header}>
-            <div className={classes.currentUser}>
-                <img src={props.state.img} alt=""/>
-                <span>{props.state.name} {props.state.surname}</span>
-            </div>
+  
+  return (
+    <header className={classes.header}>
+      <div className={classes.currentUser}>
+        <img src={props.currentUser.img} />
+        <span>
+          {props.currentUser.name} {props.currentUser.surname}
+        </span>
+      </div>
+    </header>
+  );
+};
 
-        </header>
-    );
-}
-
-export default Header
+export default Header;
