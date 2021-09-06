@@ -8,6 +8,7 @@ const MyPosts = (props) => {
       state={props.currentUser}
       message={p.message}
       likesCount={p.likesCount}
+      key={p.id}
     />
   ));
 

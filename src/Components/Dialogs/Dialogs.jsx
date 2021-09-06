@@ -5,10 +5,10 @@ import React from "react";
 
 const Dialogs = (props) => {
   let dialogsElements = props.dialogsPage.dialogs.map((d) => (
-    <DialogItem state={d} />
+    <DialogItem state={d} key={d.id}/>
   ));
   let messagesElement = props.dialogsPage.messages
-    .map((m) => <Message message={m} currentUser={props.currentUser} />)
+    .map((m) => <Message message={m} currentUser={props.currentUser} key={m.id}/>)
     .reverse();
 
   let onNewMessageChange = (event) => {
@@ -34,7 +34,9 @@ const Dialogs = (props) => {
                 placeholder="Click here to start typing..."
                 onChange={onNewMessageChange}
                 value={props.dialogsPage.newMessageBody}
-              ></textarea>
+              >
+
+              </textarea>
             </div>
             <div className={classes.sendButton}>
               <button onClick={onSendMessageClick}>Send</button>
