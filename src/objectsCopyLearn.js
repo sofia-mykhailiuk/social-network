@@ -56,3 +56,4 @@ g.soulmates = [...d.soulmates];
 g.soulmates.push("dfff");
 console.log(g.soulmates); // ["oii", "joi", "doff", "dfff"]
 console.log(d.soulmates); // ["oii", "joi", "doff"];
+
