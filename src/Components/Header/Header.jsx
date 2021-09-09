@@ -3,9 +3,9 @@ import classes from "./Header.module.css";
 const Header = (props) => {
   
   return (
-    <header className={classes.header}>
+    <header className={`${classes.header} cardWrapper`}>
       <div className={classes.currentUser}>
-        <img src={props.currentUser.img} />
+        <img className="avatar" src={props.currentUser.img} />
         <span>
           {props.currentUser.name} {props.currentUser.surname}
         </span>

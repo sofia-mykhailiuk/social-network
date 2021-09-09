@@ -15,16 +15,7 @@
     color: darkmagenta;
 }
 
-.userAvatar {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.dialog .avatar {
     height: 60px;
     width: 60px;
-    border-radius: 50%;
-}
-.userAvatar img {
-    width: auto;
-    height: 100%;
 }

@@ -12,12 +12,11 @@ const MyPosts = (props) => {
     />
   ));
 
-  let onChangeNewPostValue = (event) => {
-    let newValue = event.target.value;
-    props.updateNewPostValue(newValue);
+  const onChangeNewPostValue = (event) => {
+    props.updateNewPostValue(event.target.value);
   };
 
-  let onAddPost = () => {
+  const onAddPost = () => {
     props.addPost();
   };
 

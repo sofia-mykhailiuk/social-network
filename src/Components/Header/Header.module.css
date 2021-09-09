@@ -1,10 +1,6 @@
 .header {
     margin-top: 10px;
     grid-area: h;
-    background: rgba( 255, 255, 255, 1 );
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 20px );
-    border-radius: 10px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -20,10 +16,4 @@
 
 .currentUser span{
     padding-left: 10px;
-}
-
-.currentUser img {
-    width: auto;
-    height: 45px;
-    border-radius: 50%;
 }

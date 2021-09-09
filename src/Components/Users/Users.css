@@ -1,0 +1,18 @@
+.usersWrapper {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allUsers {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.userCard + .followButton:nth-of-type(2n){
+    background-color: red!important;
+}

@@ -2,15 +2,15 @@ import classes from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import SidebarContainer from "../Sidebar/SidebarContainer";
 
-const Navbar = (props) => {
+const Navbar = () => {
   return (
-    <nav className={classes.nav}>
+    <nav className={`${classes.nav} cardWrapper`}>
       <div className={classes.item}>
         <NavLink to="/profile" activeClassName={classes.activeLink}>
           Profile
         </NavLink>
       </div>
-      <div className={`${classes.item} ${classes.active}`}>
+      <div className={classes.item} >
         <NavLink to="/dialogs" activeClassName={classes.activeLink}>
           Messages
         </NavLink>
