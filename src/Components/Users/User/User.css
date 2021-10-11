@@ -1,0 +1,74 @@
+.userCard {
+    /*width: 131vh;*/
+    width: 48%;
+    height: 17vh;
+    overflow: hidden;
+    margin: 0px 5px 15px 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-content: center;
+}
+
+.userCard .avatar {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    margin-left: 5px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.userDescription {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    overflow: hidden;
+}
+
+.userStatus {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 5px;
+    justify-content: space-between;
+}
+
+.custom-button:before {
+    display: block;
+    width: 1px;
+    border-left: 1px solid #000;
+    height: calc(30vh + 1px);
+    position: absolute;
+    content: '';
+    left: -5px;
+    top: -90px;
+}
+ .custom-button{
+     position: relative;
+    border-left: none !important;
+}
+.buttonsContainer button {
+    text-align: left;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.followButton {
+    background: #AD7CB5!important;
+}
+
+.sendButton {
+    color: #AD7CB5!important;
+    background: none!important;
+    border: 1px solid #AD7CB5!important;
+}

@@ -1,3 +1,8 @@
+::-webkit-scrollbar { /* chrome based */
+  width: 0px;  /* ширина scrollbar'a */
+  background: transparent;  /* опционально */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,10 +18,76 @@ code {
 }
 
 body {
-  /*backdrop-filter: blur( 7.5px );*/
   background-image: url("./08.-Violet-Blue.jpg");
+  /*background-color: black;*/
   background-repeat: no-repeat;
   background-size: cover;
 
 
 }
+
+.panelWrapper {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  height: 83.6vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+
+.cardWrapper {
+  background: rgba( 255, 255, 255, 1 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 10px;
+}
+
+.shadowCard {
+  padding: 10px;
+  background: rgba( 255, 255, 255, 1);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 10px;
+}
+
+.avatar {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.avatar img {
+  width: auto;
+  height: 100%;
+}
+
+.header-text{
+  font-size: 16px;
+  font-weight: 600;
+}
+.subheader-text{
+  font-size: 12px;
+}
+.text{
+  font-size: 14px;
+}
+
+.custom-button {
+  border-left: 1px solid black;
+  padding-left: 10px;
+}
+
+.custom-button button {
+  border: none;
+  background: none;
+}
+

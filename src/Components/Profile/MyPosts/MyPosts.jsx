@@ -8,15 +8,15 @@ const MyPosts = (props) => {
       state={props.currentUser}
       message={p.message}
       likesCount={p.likesCount}
+      key={p.id}
     />
   ));
 
-  let onChangeNewPostValue = (event) => {
-    let newValue = event.target.value;
-    props.updateNewPostValue(newValue);
+  const onChangeNewPostValue = (event) => {
+    props.updateNewPostValue(event.target.value);
   };
 
-  let onAddPost = () => {
+  const onAddPost = () => {
     props.addPost();
   };
 

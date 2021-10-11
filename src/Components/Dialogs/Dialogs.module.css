@@ -1,13 +1,8 @@
-::-webkit-scrollbar { /* chrome based */
-    width: 0px;  /* ширина scrollbar'a */
-    background: transparent;  /* опционально */
-}
-
-.back {
+.dialogsWrapper {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(10.0px);
-    -webkit-backdrop-filter: blur(20.0px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 10px;
     padding: 20px;
     height: 78vh;
@@ -26,10 +21,6 @@
     border-radius: 10px 0px 0px 10px;
     height: 72.5vh;
     width: 30vh;
-}
-
-.active {
-    color: #075760;
 }
 
 .dialog {
@@ -68,12 +59,14 @@
 
     display: grid;
     grid-template-columns: 11fr 1fr;
-
+    overflow: hidden;
+    position: relative;
 }
 
 .messageInput {
     /*width: 100%;*/
     height: 60px;
+
 
 }
 .messageInput textarea {
@@ -84,16 +77,6 @@
     width: 100%;
     height: 100%;
     border: none;
-    border-right: 1px solid black;
     outline: none;
     -moz-appearance: none;
-
-}
-
-.sendButton {
-    padding-left: 10px;
-}
-.sendButton button{
-    border: none;
-    background: none;
 }

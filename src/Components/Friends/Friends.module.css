@@ -1,0 +1,17 @@
+.friends {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10.0px);
+    -webkit-backdrop-filter: blur(20.0px);
+    border-radius: 10px;
+}
+
+.findFriends a{
+    text-decoration: none;
+    color: darkmagenta;
+}
+
+.activeLink{
+     color: darkmagenta;
+ }
+

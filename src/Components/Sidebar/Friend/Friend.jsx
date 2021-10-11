@@ -3,7 +3,7 @@ import classes from './Friend.module.css';
 const Friend = (props) => {
     return (
         <div className={classes.friend}>
-            <div className={classes.userAvatar}>
+            <div className={`avatar`}>
                 <img src={props.state.img} alt=""/>
             </div>
             <div>

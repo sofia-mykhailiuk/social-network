@@ -1,16 +1,13 @@
 .header {
+    box-sizing: border-box;
     margin-top: 10px;
     grid-area: h;
-    background: rgba( 255, 255, 255, 1 );
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 20px );
-    border-radius: 10px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     padding: 10px   20px;
     color: black;
-    height: 6.6vh;
+    height: 9.8vh;
 }
 .currentUser {
     padding-left: 15px;
@@ -20,10 +17,4 @@
 
 .currentUser span{
     padding-left: 10px;
-}
-
-.currentUser img {
-    width: auto;
-    height: 45px;
-    border-radius: 50%;
 }
