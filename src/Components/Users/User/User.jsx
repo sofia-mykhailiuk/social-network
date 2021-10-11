@@ -3,9 +3,9 @@ import "./User.css"
 const User = (props) => {
     return (
         <div className={`userCard shadowCard`}>
-           <div className={`avatar`}>
-               <img src={props.state.img} alt=""/>
-           </div>
+            <div className={`avatar`}>
+                <img src={props.state.img} alt=""/>
+            </div>
             <div className={'userDescription'}>
                 <div>
                     <div className='header-text'>
@@ -21,7 +21,9 @@ const User = (props) => {
                 </div>
             </div>
             <div className={`buttonsContainer custom-button`}>
-                <button className={'followButton'}>Follow</button>
+                <button id='toggle-follow' onClick={() => {
+                    props.toggleFollow(props.state.id)
+                }} className={'followButton'}>{props.state.followed ? 'Unfollow' : 'Follow'}</button>
                 <button className={'sendButton'}>Send Message</button>
             </div>
         </div>

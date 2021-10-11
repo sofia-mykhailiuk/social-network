@@ -1,7 +1,8 @@
 .nav {
+    box-sizing: border-box;
     grid-area: n;
     padding: 20px;
-    height: 78vh;
+    height: 83.6vh;
 }
 .item {
     margin-bottom: 1px;

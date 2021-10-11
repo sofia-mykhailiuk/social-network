@@ -13,6 +13,11 @@
     align-items: center;
     justify-content: space-evenly;
 }
-.userCard + .followButton:nth-of-type(2n){
-    background-color: red!important;
+.userCard:nth-of-type(2n) .followButton{
+    background-color: #9595C4!important;
+}
+
+.userCard:nth-of-type(2n) .sendButton{
+    border-color: #9595C4!important;
+    color: #9595C4!important;
 }
