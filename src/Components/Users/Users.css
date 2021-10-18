@@ -21,3 +21,6 @@
     border-color: #9595C4!important;
     color: #9595C4!important;
 }
+.selectedPage {
+    font-weight: bold;
+}
