@@ -1,6 +1,7 @@
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import Preloader from "../common/Preloader/Preloader";
+import "./Profile.css"
 
 const Profile = (props) => {
     if(!props.profile) {
