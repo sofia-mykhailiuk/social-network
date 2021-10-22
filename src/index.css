@@ -1,5 +1,5 @@
 ::-webkit-scrollbar { /* chrome based */
-  width: 0px;  /* ширина scrollbar'a */
+  width: 0;  /* ширина scrollbar'a */
   background: transparent;  /* опционально */
 }
 
@@ -35,7 +35,6 @@ body {
   height: 83.6vh;
   overflow-y: scroll;
   -ms-overflow-style: none;
-  scrollbar-width: none;
   box-sizing: border-box;
 }
 
@@ -67,7 +66,7 @@ body {
 
 .avatar img {
   width: auto;
-  height: 100%;
+  height: 90px;
 }
 
 .header-text{
@@ -89,5 +88,21 @@ body {
 .custom-button button {
   border: none;
   background: none;
+}
+
+.custom-textarea  {
+  height: 60px;
+}
+
+.custom-textarea textarea {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  resize: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  -moz-appearance: none;
 }
 

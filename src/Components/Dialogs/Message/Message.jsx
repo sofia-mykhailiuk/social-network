@@ -1,14 +1,14 @@
-import classes from "./Message.module.css";
+import "./Message.css";
 
 
 const Message = (props) => {
 
     return (
-        <div className={`${classes.message} ${props.currentUser.id === props.message.authorId ? classes.rightMessage : classes.message}`}>
-            <div className={`avatar ${classes.avatar}`}>
+        <div className={`message ${props.currentUser.id === props.message.authorId ? "rightMessage" : "message"}`}>
+            <div className="avatar">
                 <img src={props.currentUser.id === props.message.authorId ? props.currentUser.img : props.message.img} alt="Avatar"/>
             </div>
-            <div className={classes.messageText}>
+            <div className="messageText">
                 {props.message.message}
             </div>
         </div>
