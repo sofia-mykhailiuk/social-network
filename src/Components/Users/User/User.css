@@ -1,5 +1,4 @@
 .userCard {
-    /*width: 131vh;*/
     width: 48%;
     height: 17vh;
     overflow: hidden;
@@ -52,10 +51,12 @@
     left: -5px;
     top: -90px;
 }
- .custom-button{
-     position: relative;
+
+.custom-button{
+    position: relative;
     border-left: none !important;
 }
+
 .buttonsContainer button {
     text-align: left;
     color: white;
@@ -71,4 +72,8 @@
     color: #AD7CB5!important;
     background: none!important;
     border: 1px solid #AD7CB5!important;
+}
+
+#toggle-follow.disabled{
+    background: darkgrey!important;
 }
