@@ -1,7 +1,7 @@
 import "./User.css"
 import userAvatar from "../../../assets/images/no-image-user-1536x1536.jpeg"
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import {followAPI} from "../../../api/api";
 
 const User = (props) => {
 
@@ -30,19 +30,16 @@ const User = (props) => {
                 <button id='toggle-follow'
                         onClick={() => {
                             props.state.followed ?
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.state.id}`, {withCredentials: true, headers: {"API-KEY" : "b29e5b99-982c-49c5-af2c-eee74a9a7c55"}})
-                                    .then(response => {
-                                        if (response.data.resultCode === 0) {
-                                            props.toggleFollow(props.state.id)
-                                        }
-                                    }) :
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.state.id}`, {}, {withCredentials: true, headers: {"API-KEY" : "b29e5b99-982c-49c5-af2c-eee74a9a7c55"}})
-                                    .then(response => {
-                                        if (response.data.resultCode === 0) {
-                                            props.toggleFollow(props.state.id)
-                                            console.log('follow')
-                                        }
-                                    })
+                                followAPI.unfollow(props.state.id).then(data => {
+                                    if (data.resultCode === 0) {
+                                        props.toggleFollow(props.state.id)
+                                    }
+                                }) :
+                                followAPI.follow(props.state.id).then(data => {
+                                    if (data.resultCode === 0) {
+                                        props.toggleFollow(props.state.id)
+                                    }
+                                })
                         }}
                         className={'followButton'}>
                     {props.state.followed ? 'Unfollow' : 'Follow'}
