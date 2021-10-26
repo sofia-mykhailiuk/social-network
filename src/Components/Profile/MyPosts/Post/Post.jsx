@@ -1,10 +1,10 @@
-import classes from './Post.module.css'
+import './Post.css'
 
 const Post = (props) => {
 
     return (
-        <div className={`${classes.item} shadowCard`}>
-            <div className={classes.post}>
+        <div className="postItem shadowCard">
+            <div className="post">
                 <img src={props.state.img} alt=""/>
                 <span>{props.message}</span>
             </div>

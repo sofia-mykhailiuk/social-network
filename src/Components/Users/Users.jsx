@@ -8,7 +8,7 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    return <div className={`usersWrapper panelWrapper`}>
+    return <div className={`usersWrapper`}>
         <div className={'allUsers'}>
             {props.users.map((u) => {
                 return <User state={u} key={u.id}

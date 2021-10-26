@@ -1,12 +1,11 @@
-import classes from './Friends.module.css';
+import './Friends.css';
 import {NavLink} from "react-router-dom";
 
 const Friends = () => {
     return (
-        <div className={classes.friends}>
-            Friends
-            <div className={classes.findFriends}>
-                <NavLink to='/users' activeClass={classes.activeLink}>Find friends</NavLink>
+        <div className={`usersWrapper`}>
+            <div className='findFriends'>
+                <NavLink to='/users' activeClassName='activeLink'>Find friends</NavLink>
             </div>
         </div>
     );

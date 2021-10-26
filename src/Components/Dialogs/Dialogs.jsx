@@ -2,7 +2,6 @@ import './Dialogs.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
-import {Redirect} from "react-router-dom";
 
 const Dialogs = (props) => {
     let dialogsElements = props.dialogsPage.dialogs.map((d) => (
@@ -21,19 +20,14 @@ const Dialogs = (props) => {
         props.sendMessage();
     };
 
-    if (!props.isAuth) {
-        return <Redirect to={'/login'}/>
-    }
-
     return (
-        <div className="dialogsWrapper">
             <div className="dialogs">
                 <div className="dialogsItems">{dialogsElements}</div>
 
                 <div className="dialog">
                     <div className="messages">{messagesElement}</div>
 
-                    <div className="addMessage">
+                    <div className="addMessage shadowCard">
                         <div className="custom-textarea ">
                               <textarea
                                   placeholder="Click here to start typing..."
@@ -47,7 +41,6 @@ const Dialogs = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

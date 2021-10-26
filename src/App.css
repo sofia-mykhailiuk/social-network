@@ -18,6 +18,15 @@
 
 .app-wrapper-content {
     grid-area: c;
-
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    height: 83.6vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+    scrollbar-width: none;
 
 }

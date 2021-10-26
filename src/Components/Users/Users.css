@@ -1,17 +1,15 @@
 .usersWrapper {
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .allUsers {
-    padding-top: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .userCard:nth-of-type(2n) .followButton {
     background-color: #9595C4!important;
