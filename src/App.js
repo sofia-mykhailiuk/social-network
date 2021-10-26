@@ -5,6 +5,7 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import Friends from "./Components/Friends/Friends";
+import Login from "./Components/Login/Login";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path="/settings" component={Settings}/>
                 <Route path="/friends" component={Friends}/>
                 <Route path="/users" render={() => <UsersContainer/>}/>
+                <Route path="/login" render={()=><Login/>}/>
             </div>
         </div>
     );
