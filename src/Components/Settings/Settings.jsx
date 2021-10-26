@@ -1,6 +1,6 @@
-import classes from './Settings.module.css'
+import './Settings.css'
 
-const Settings = (props) => {
+const Settings = () => {
     return (
         <div>
             Settings

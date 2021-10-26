@@ -8,13 +8,13 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    ;
-
     return <div className={`usersWrapper panelWrapper`}>
         <div className={'allUsers'}>
             {props.users.map((u) => {
-                return <User state={u} toggleFollow={props.toggleFollow} followingInProgress={props.followingInProgress}
-                             toggleFollowingProgress={props.toggleFollowingProgress} key={u.id}/>
+                return <User state={u} key={u.id}
+                             toggleFollow={props.toggleFollow}
+                             followingInProgress={props.followingInProgress}
+                />
             })}
         </div>
         <div>

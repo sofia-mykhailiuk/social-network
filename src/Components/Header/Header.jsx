@@ -7,11 +7,12 @@ const Header = (props) => {
         <header className="header cardWrapper">
             {props.isAuth ?
                 <div className="currentUser">
-                    <img className="avatar"
-                         src={props.currentUser.photos.large ? props.currentUser.photos.large : userAvatar}/>
                     <span>
                     {props.login}
                     </span>
+                    <img className="avatar"
+                         src={props.currentUser.photos.large ? props.currentUser.photos.large : userAvatar}
+                    alt=''/>
                 </div> :
                 <div className="loginBlock">
                     <NavLink to={'/login'}>Login</NavLink>

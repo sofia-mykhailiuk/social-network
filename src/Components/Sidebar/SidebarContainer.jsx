@@ -1,6 +1,17 @@
 import Sidebar from "./Sidebar";
-import { connect } from "react-redux";
-import {setFriendsAC} from "../../Redux/sidebar-reducer";
+import {connect} from "react-redux";
+import {setFriends} from "../../Redux/sidebar-reducer";
+import React from "react";
+
+class SidebarCContainer extends React.Component {
+  componentDidMount() {
+    this.props.setFriends()
+  }
+
+  render() {
+    return <Sidebar state={this.props.state}/>
+  }
+}
 
 let mapStateToProps = (state) => {
   return {
@@ -8,14 +19,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    setFriends: (friends) => {
-      dispatch(setFriendsAC(friends))
-    }
-  };
-};
-
-const SidebarContainer = connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+const SidebarContainer = connect(mapStateToProps, {setFriends})(SidebarCContainer);
 
 export default SidebarContainer;

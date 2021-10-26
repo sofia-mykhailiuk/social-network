@@ -34,3 +34,9 @@ export const authAPI = {
     }
 }
 
+export const friendsAPI = {
+    setFriends: () => {
+        return instance.get('/users?friend=true').then(response => response.data)
+    }
+}
+

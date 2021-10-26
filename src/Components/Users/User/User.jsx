@@ -1,7 +1,6 @@
 import "./User.css"
 import userAvatar from "../../../assets/images/no-image-user-1536x1536.jpeg"
 import {NavLink} from "react-router-dom";
-import {followAPI} from "../../../api/api";
 
 const User = (props) => {
     const getButtonState = () => {
@@ -33,20 +32,7 @@ const User = (props) => {
                 <button disabled={getButtonState()}
                         id='toggle-follow' className={`followButton ${getButtonState() ? 'disabled' : ''}`}
                         onClick={() => {
-                            props.toggleFollowingProgress(true, props.state.id)
-                            props.state.followed ?
-                                followAPI.unfollow(props.state.id).then(data => {
-                                    if (data.resultCode === 0) {
-                                        props.toggleFollow(props.state.id)
-                                    }
-                                    props.toggleFollowingProgress(false, props.state.id)
-                                }) :
-                                followAPI.follow(props.state.id).then(data => {
-                                    if (data.resultCode === 0) {
-                                        props.toggleFollow(props.state.id)
-                                    }
-                                    props.toggleFollowingProgress(false, props.state.id)
-                                })
+                            props.toggleFollow(props.state.id, props.state.followed)
                         }}>
                     {props.state.followed ? 'Unfollow' : 'Follow'}
                 </button>
