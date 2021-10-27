@@ -3,7 +3,7 @@ import {profileAPI} from "../api/api";
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_VALUE = "UPDATE-NEW-POST-VALUE";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
-const GET_USER_PROFILE = "GET-USER-PROFILE"
+const SET_CURRENT_USER = "SET-CURRENT-USER";
 
 let initialState = {
     postValue: "",
@@ -13,7 +13,8 @@ let initialState = {
         {id: "3", message: "What`s up", likesCount: 13},
         {id: "4", message: "Yo", likesCount: 1},
     ],
-    profile: null
+    currentUser: null,
+    profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -43,6 +44,12 @@ const profileReducer = (state = initialState, action) => {
                 profile: action.profile
             }
         }
+        case SET_CURRENT_USER: {
+            return {
+                ...state,
+                currentUser: action.profile
+            }
+        }
         default: {
             return state;
         }
@@ -55,8 +62,8 @@ export const updateNewPostValueActionCreator = (newValue) => ({
 });
 
 export const addPostActionCreator = () => ({type: ADD_POST});
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const getUserProfile = () => ({type: GET_USER_PROFILE});
+const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const setCurrentUser = (profile) => ({type: SET_CURRENT_USER, profile})
 
 export const getProfile = (userId) => (dispatch) => {
     profileAPI.getProfile(userId).then(data => {
