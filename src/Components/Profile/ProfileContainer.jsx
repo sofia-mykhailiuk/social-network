@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfile} from "../../Redux/profile-reducer";
+import {getProfile, getUserStatus, updateUserStatus} from "../../Redux/profile-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
@@ -20,26 +20,28 @@ import {compose} from "redux";
 
 const ProfileContainer = (props) => {
     useEffect(()=>{
-        if(props.match.params.userId) {
-            props.getProfile(props.match.params.userId)
-        } else if (props.currentUser) {
-            props.getProfile(props.currentUser.userId)
+        let userId = props.match.params.userId
+        if(!userId && props.currentUser) {
+            userId = props.currentUser.userId
+            props.getProfile(userId)
+            props.getUserStatus(userId)
         }
     },[props.currentUser])
 
 
-    return <Profile {...props} profile={props.profile}/>
+    return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateUserStatus}/>
 }
 
 let mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
-        currentUser: state.profilePage.currentUser
+        currentUser: state.profilePage.currentUser,
+        status: state.profilePage.status
     }
 };
 
 export default compose(
-    connect(mapStateToProps, {getProfile}),
+    connect(mapStateToProps, {getProfile,getUserStatus, updateUserStatus}),
     withRouter,
     // withAuthRedirect
 )(ProfileContainer)

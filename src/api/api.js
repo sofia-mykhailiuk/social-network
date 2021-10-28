@@ -26,6 +26,12 @@ export const followAPI = {
 export const profileAPI = {
     getProfile: (id) => {
         return instance.get(`profile/${id}`).then(response => response.data)
+    },
+    getStatus: (id) => {
+        return instance.get(`profile/status/${id}`).then(response => response.data)
+    },
+    updateStatus: (status) => {
+        return instance.put('profile/status', {status}).then(response => response.data)
     }
 }
 export const authAPI = {
@@ -39,4 +45,3 @@ export const friendsAPI = {
         return instance.get('/users?friend=true').then(response => response.data)
     }
 }
-
