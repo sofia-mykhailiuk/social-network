@@ -5,19 +5,21 @@ import {getProfile, getUserStatus, updateUserStatus} from "../../Redux/profile-r
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
-/*class ProfileContainer extends React.Component {
+class ProfileContainer extends React.Component {
     componentDidMount() {
-        if(this.props.currentUser){
-            let userId = this.props.match.params.userId;
-            !userId ? this.props.getProfile(this.props.currentUser.userId) : this.props.getProfile(userId)
+        let userId = this.props.match.params.userId;
+        if(!userId) {
+            userId = 20154
         }
+        this.props.getProfile(userId)
+        this.props.getUserStatus(userId)
     }
 
     render() {
-        return <Profile {...this.props} profile={this.props.profile}/>
+        return <Profile {...this.props} profile={this.props.profile} updateStatus={this.props.updateUserStatus}/>
     }
-}*/
-
+}
+/*
 const ProfileContainer = (props) => {
     useEffect(()=>{
         let userId = props.match.params.userId
@@ -30,7 +32,7 @@ const ProfileContainer = (props) => {
 
 
     return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateUserStatus}/>
-}
+}*/
 
 let mapStateToProps = (state) => {
     return {
