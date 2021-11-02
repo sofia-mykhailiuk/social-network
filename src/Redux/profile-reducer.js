@@ -1,14 +1,12 @@
 import {profileAPI} from "../api/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_VALUE = "UPDATE-NEW-POST-VALUE";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const SET_CURRENT_USER = "SET-CURRENT-USER";
 const SET_USER_STATUS = "SET-USER-STATUS";
 const UPDATE_USER_STATUS = "UPDATE-USER-STATUS";
 
 let initialState = {
-    postValue: "",
     posts: [
         {id: "1", message: "Hi, how are you?", likesCount: 4},
         {id: "2", message: "This is my first post", likesCount: 199},
@@ -22,23 +20,16 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_POST_VALUE: {
-            return {
-                ...state,
-                postValue: action.text
-            };
-        }
         case ADD_POST: {
             let lastId = state.posts.length;
             let newPost = {
                 id: (++lastId).toString(),
-                message: state.postValue,
+                message: action.postBody,
                 likesCount: 0,
             };
             return {
                 ...state,
-                posts: [...state.posts, newPost],
-                postValue: ""
+                posts: [...state.posts, newPost]
             };
         }
         case SET_USER_PROFILE: {
@@ -68,12 +59,7 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-export const updateNewPostValueActionCreator = (newValue) => ({
-    type: UPDATE_NEW_POST_VALUE,
-    text: newValue,
-});
-
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = (postBody) => ({type: ADD_POST, postBody});
 const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setCurrentUser = (profile) => ({type: SET_CURRENT_USER, profile})
 const setUserStatus = (status) => ({type: SET_USER_STATUS, status})
