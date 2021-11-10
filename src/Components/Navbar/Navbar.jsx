@@ -1,38 +1,38 @@
-import classes from './Navbar.module.css'
+import './Navbar.css'
 import {NavLink} from "react-router-dom";
 import SidebarContainer from "../Sidebar/SidebarContainer";
 
 const Navbar = () => {
   return (
-    <nav className={`${classes.nav} cardWrapper`}>
-      <div className={classes.item}>
-        <NavLink to="/profile" activeClassName={classes.activeLink}>
-          Profile
+    <nav className='nav cardWrapper'>
+      <div className='nav-item'>
+        <NavLink to="/profile" activeClassName='activeLink'>
+           Profile
         </NavLink>
       </div>
-      <div className={classes.item} >
-        <NavLink to="/dialogs" activeClassName={classes.activeLink}>
-          Messages
+      <div className='nav-item'>
+        <NavLink to="/dialogs" activeClassName='activeLink'>
+            Messages
         </NavLink>
       </div>
-      <div className={classes.item}>
-        <NavLink to="/news" activeClassName={classes.activeLink}>
-          News
+      <div className='nav-item'>
+        <NavLink to="/news" activeClassName='activeLink'>
+            News
         </NavLink>
       </div>
-      <div className={classes.item}>
-        <NavLink to="/music" activeClassName={classes.activeLink}>
-          Music
+      <div className='nav-item'>
+        <NavLink to="/music" activeClassName='activeLink'>
+            Music
         </NavLink>
       </div>
-      <div className={classes.item}>
-        <NavLink to="/settings" activeClassName={classes.activeLink}>
-          Settings
+      <div className='nav-item'>
+        <NavLink to="/settings" activeClassName='activeLink'>
+            Settings
         </NavLink>
       </div>
-      <div className={classes.item}>
-        <NavLink to="/friends" activeClassName={classes.activeLink}>
-          Friends
+      <div className='nav-item'>
+        <NavLink to="/friends" activeClassName='activeLink'>
+            Friends
         </NavLink>
       </div>
 

@@ -1,21 +1,24 @@
-.dialog {
+.dialog-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 
-
 }
-.dialog a{
+.dialog-item a{
     padding-left: 10px;
     text-decoration: none;
     color: black;
 }
 
-.dialog a.active{
+.dialog-item a.active{
     color: darkmagenta;
 }
 
-.dialog .avatar {
+.dialog-item .avatar {
     height: 60px;
     width: 60px;
+}
+
+.dialog-item .avatar img{
+    height: 60px!important;
 }

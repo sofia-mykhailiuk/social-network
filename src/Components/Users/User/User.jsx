@@ -1,12 +1,15 @@
 import "./User.css"
-import userPhoto from "../../../assets/images/no-image-user-1536x1536.jpeg"
+import userAvatar from "../../../assets/images/no-image-user-1536x1536.jpeg"
+import {NavLink} from "react-router-dom";
 
 const User = (props) => {
+
     return (
         <div className={`userCard shadowCard`}>
             <div className={`avatar`}>
-                {/*<img src={props.state.img} alt=""/>*/}
-                <img src={ props.state.photos.large != null ? props.state.photos.large : userPhoto } alt=""/>
+                <NavLink to={'/profile/' + props.state.id}>
+                    <img src={ props.state.photos.large != null ? props.state.photos.large : userAvatar } alt=""/>
+                </NavLink>
             </div>
             <div className={'userDescription'}>
                 <div>

@@ -30,7 +30,7 @@
     padding-left: 7px;
 }
 
-.message .avatar {
-    height: 40px;
-    width: 40px;
+.message .avatar img{
+    height: 45px!important;
+    width: auto;
 }

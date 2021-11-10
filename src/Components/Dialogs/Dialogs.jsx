@@ -1,4 +1,4 @@
-import classes from './Dialogs.module.css'
+import './Dialogs.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
@@ -21,20 +21,20 @@ const Dialogs = (props) => {
     };
 
     return (
-        <div className={classes.dialogsWrapper}>
-            <div className={classes.dialogs}>
-                <div className={classes.dialogsItems}>{dialogsElements}</div>
+        <div className="dialogsWrapper">
+            <div className="dialogs">
+                <div className="dialogsItems">{dialogsElements}</div>
 
-                <div className={classes.dialog}>
-                    <div className={classes.messages}>{messagesElement}</div>
+                <div className="dialog">
+                    <div className="messages">{messagesElement}</div>
 
-                    <div className={classes.addMessage}>
-                        <div className={classes.messageInput}>
-              <textarea
-                  placeholder="Click here to start typing..."
-                  onChange={onNewMessageChange}
-                  value={props.dialogsPage.newMessageBody}
-              />
+                    <div className="addMessage">
+                        <div className="custom-textarea ">
+                              <textarea
+                                  placeholder="Click here to start typing..."
+                                  onChange={onNewMessageChange}
+                                  value={props.dialogsPage.newMessageBody}
+                              />
                         </div>
                         <div className='custom-button'>
                             <button onClick={onSendMessageClick}>Send</button>
