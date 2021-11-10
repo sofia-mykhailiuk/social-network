@@ -1,6 +1,7 @@
 import "./User.css"
 import userAvatar from "../../../assets/images/no-image-user-1536x1536.jpeg"
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 const User = (props) => {
 
@@ -8,13 +9,12 @@ const User = (props) => {
         <div className={`userCard shadowCard`}>
             <div className={`avatar`}>
                 <NavLink to={'/profile/' + props.state.id}>
-                    <img src={ props.state.photos.large != null ? props.state.photos.large : userAvatar } alt=""/>
+                    <img src={props.state.photos.large != null ? props.state.photos.large : userAvatar} alt=""/>
                 </NavLink>
             </div>
             <div className={'userDescription'}>
                 <div>
                     <div className='header-text'>
-                        {/*{`${props.state.name} ${props.state.surname}`}*/}
                         {`${props.state.name}`}
                     </div>
                     <div className={`subheader-text`}>
@@ -27,9 +27,26 @@ const User = (props) => {
                 </div>
             </div>
             <div className={`buttonsContainer custom-button`}>
-                <button id='toggle-follow' onClick={() => {
-                    props.toggleFollow(props.state.id)
-                }} className={'followButton'}>{props.state.followed ? 'Unfollow' : 'Follow'}</button>
+                <button id='toggle-follow'
+                        onClick={() => {
+                            props.state.followed ?
+                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.state.id}`, {withCredentials: true, headers: {"API-KEY" : "b29e5b99-982c-49c5-af2c-eee74a9a7c55"}})
+                                    .then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.toggleFollow(props.state.id)
+                                        }
+                                    }) :
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.state.id}`, {}, {withCredentials: true, headers: {"API-KEY" : "b29e5b99-982c-49c5-af2c-eee74a9a7c55"}})
+                                    .then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.toggleFollow(props.state.id)
+                                            console.log('follow')
+                                        }
+                                    })
+                        }}
+                        className={'followButton'}>
+                    {props.state.followed ? 'Unfollow' : 'Follow'}
+                </button>
                 <button className={'sendButton'}>Send Message</button>
             </div>
         </div>
