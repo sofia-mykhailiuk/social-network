@@ -4,6 +4,9 @@ import {NavLink} from "react-router-dom";
 import {followAPI} from "../../../api/api";
 
 const User = (props) => {
+    const getButtonState = () => {
+        return props.followingInProgress.some(id => id === props.state.id)
+    }
 
     return (
         <div className={`userCard shadowCard`}>
@@ -27,21 +30,24 @@ const User = (props) => {
                 </div>
             </div>
             <div className={`buttonsContainer custom-button`}>
-                <button id='toggle-follow'
+                <button disabled={getButtonState()}
+                        id='toggle-follow' className={`followButton ${getButtonState() ? 'disabled' : ''}`}
                         onClick={() => {
+                            props.toggleFollowingProgress(true, props.state.id)
                             props.state.followed ?
                                 followAPI.unfollow(props.state.id).then(data => {
                                     if (data.resultCode === 0) {
                                         props.toggleFollow(props.state.id)
                                     }
+                                    props.toggleFollowingProgress(false, props.state.id)
                                 }) :
                                 followAPI.follow(props.state.id).then(data => {
                                     if (data.resultCode === 0) {
                                         props.toggleFollow(props.state.id)
                                     }
+                                    props.toggleFollowingProgress(false, props.state.id)
                                 })
-                        }}
-                        className={'followButton'}>
+                        }}>
                     {props.state.followed ? 'Unfollow' : 'Follow'}
                 </button>
                 <button className={'sendButton'}>Send Message</button>

@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-evenly;
 }
-.userCard:nth-of-type(2n) .followButton{
+.userCard:nth-of-type(2n) .followButton {
     background-color: #9595C4!important;
 }
 
