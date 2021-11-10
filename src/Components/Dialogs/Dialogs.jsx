@@ -2,16 +2,21 @@ import './Dialogs.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
+import {Textarea} from "../common/FormControls/Textarea";
+import {maxLengthCreator, required} from "../../utils/validators";
+
+const maxLength30 = maxLengthCreator(30)
 
 const AddMessageForm = (props) => {
     return (
-        <form className="addMessage shadowCard" onSubmit={props.handleSubmit}>
+        <form className="new-message-wrapper shadowCard" onSubmit={props.handleSubmit}>
             <div className="custom-textarea ">
                 <Field
                     name='newMessage'
-                    component='textarea'
+                    component={Textarea}
                     placeholder="Click here to start typing..."
+                    validate={[required, maxLength30]}
                 />
             </div>
             <div className='custom-button'>
@@ -34,8 +39,9 @@ const Dialogs = (props) => {
         .map((m) => <Message message={m} currentUser={props.currentUser} key={m.id}/>)
         .reverse();
 
-    let onSendMessage = (formData) => {
+    let onSendMessage = (formData, dispatch) => {
         props.sendMessage(formData.newMessage)
+        dispatch(reset('add-message-form'))
     }
 
     return (

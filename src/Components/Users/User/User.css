@@ -1,6 +1,6 @@
 .userCard {
     width: 49.2%;
-    height: 18vh;
+    height: 8rem;
     overflow: hidden;
     margin: 0 0 15px 0;
     box-sizing: border-box;
@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     align-content: center;
+    justify-items: center;
 }
 
 .userCard .avatar {
@@ -38,42 +39,35 @@
     flex-direction: column;
     margin-left: 10px;
     margin-right: 5px;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: 100%;
 }
 
-.custom-button:before {
-    display: block;
-    width: 1px;
-    border-left: 1px solid #000;
-    height: calc(30vh + 1px);
-    position: absolute;
-    content: '';
-    left: -5px;
-    top: -90px;
-}
-
-.custom-button{
+.buttonsContainer.custom-button {
     position: relative;
     border-left: none !important;
+}
+
+.buttonsContainer.custom-button button {
+    padding: 5px !important;
 }
 
 .buttonsContainer button {
     text-align: left;
     color: white;
     border-radius: 5px;
-    padding: 5px;
 }
 
 .followButton {
-    background: #AD7CB5!important;
+    background: #AD7CB5 !important;
 }
 
 .sendButton {
-    color: #AD7CB5!important;
-    background: none!important;
-    border: 1px solid #AD7CB5!important;
+    color: #AD7CB5 !important;
+    background: none !important;
+    border: 1px solid #AD7CB5 !important;
 }
 
-#toggle-follow.disabled{
-    background: darkgrey!important;
+#toggle-follow.disabled {
+    background: darkgrey !important;
 }

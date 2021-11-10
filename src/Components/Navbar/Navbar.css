@@ -2,8 +2,9 @@
     box-sizing: border-box;
     grid-area: n;
     padding: 20px;
-    height: 83.6vh;
+    height: 98%;
 }
+
 .nav-item {
     margin-bottom: 1px;
 }

@@ -2,28 +2,33 @@
     display: flex;
     background: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
-    height: 78vh;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .dialogsItems {
+    box-sizing: border-box;
     padding: 20px;
     background: rgba(255, 255, 255, 1);
     border-radius: 10px 0 0 10px;
-    height: 72.5vh;
-    width: 30vh;
+    height: 100%;
+    width: 25%;
 }
 
 .dialog {
     display: flex;
     flex-direction: column ;
     align-items: center;
+    width: 75%;
+    max-width: 75%;
 }
 
 .messages {
-    width: 91vh;
-    height: 72.5vh;
-    max-height: 72.5vh;
-    padding: 1.3vh 2.7vh;
+    box-sizing: border-box;
+    width: 100%;
+    height: 82%;
+    max-height: 82%;
+    padding: 10px 20px;
     border-radius: 0 10px 0 0;
     display: flex;
     flex-direction: column-reverse;
@@ -33,13 +38,13 @@
     scrollbar-width: none;
 }
 
-
-.addMessage {
-    width: 91vh;
-    margin: 0 2.7vh 1.3vh 2.7vh;
-    height: 15vh;
+.new-message-wrapper {
+    width: 94%;
+    margin-bottom: 10px;
+    height: 18%;
     display: grid;
     grid-template-columns: 11fr 1fr;
     overflow: hidden;
     position: relative;
+    padding: 0!important;
 }

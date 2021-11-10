@@ -11,7 +11,7 @@ let Users = (props) => {
     return <div className={`usersWrapper`}>
         <div className={'allUsers'}>
             {props.users.map((u) => {
-                return <User state={u} key={u.id}
+                return <User state={u} key={`${u.id}`}
                              toggleFollow={props.toggleFollow}
                              followingInProgress={props.followingInProgress}
                 />
@@ -23,7 +23,7 @@ let Users = (props) => {
         <div>
             {pages.map((p, index) => {
                 return index < 20 ?
-                    <span className={p === props.currentPage && 'selectedPage'} onClick={() => {
+                    <span className={p === props.currentPage ? 'selectedPage' : null} onClick={() => {
                         props.onPageChanged(p)
                     }}>{p}</span> : null
             })}
