@@ -24,26 +24,26 @@
     position: relative;
 }
 .profile-avatar {
-    height: 120px!important;
-    width: 120px!important;
+    height: 145px!important;
+    width: 145px!important;
     border: 4px solid white;
     position: absolute;
-    left: -60px;
-    bottom: -60px;
+    left: -77px;
+    bottom: -70px;
 }
 
 .looking-for-a-job {
     position: absolute;
     left: 35px;
-    bottom: -60px;
+    bottom: -68px;
     height: 40px;
 }
 
 .description-block {
-    margin-top: 64px;
+    margin-top: 75px;
     width: 100%;
-    height: 39.5vh;
-    max-height: 39.5vh;
+    height: 38.5vh;
+    max-height: 38.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -40,6 +40,7 @@
     align-self: flex-end;
     overflow-y: scroll;
     -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 
@@ -54,10 +55,8 @@
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 20px );
     border-radius: 10px;
-
     display: grid;
     grid-template-columns: 11fr 1fr;
     overflow: hidden;
     position: relative;
 }
-
