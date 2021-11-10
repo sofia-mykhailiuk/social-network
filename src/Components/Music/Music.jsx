@@ -1,6 +1,6 @@
-import classes from './Music.module.css'
+import './Music.css'
 
-const Music = (props) => {
+const Music = () => {
     return (
         <div>
             Music
