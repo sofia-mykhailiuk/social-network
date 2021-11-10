@@ -1,5 +1,6 @@
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
+import {setFriendsAC} from "../../Redux/sidebar-reducer";
 
 let mapStateToProps = (state) => {
   return {
@@ -8,7 +9,11 @@ let mapStateToProps = (state) => {
 };
 
 let mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    setFriends: (friends) => {
+      dispatch(setFriendsAC(friends))
+    }
+  };
 };
 
 const SidebarContainer = connect(mapStateToProps, mapDispatchToProps)(Sidebar);
