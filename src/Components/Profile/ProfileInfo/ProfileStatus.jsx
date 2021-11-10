@@ -2,27 +2,32 @@ import React from "react";
 
 class ProfileStatus extends React.Component {
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
-
     activateEditMode = () => {
         this.setState({
-            editMode: true
+            editMode: true,
+            status: this.props.status
         })
     }
     deactivateEditMode = () => {
         this.setState({
             editMode: false
+        });
+        this.props.updateStatus(this.state.status);
+    }
+    onStatusChange = (event) => {
+        this.setState({
+            status: event.target.value
         })
     }
     render() {
         return <div>
             {!this.state.editMode ?
-                <span onDoubleClick={this.activateEditMode}>{this.props.status}</span> :
+                <span title={'Double click to change status...'} onDoubleClick={this.activateEditMode}>{this.props.status ? this.props.status : 'no status'}</span> :
                 <div>
-                    {/*<textarea id="status-textarea" cols="40" rows="1"
-                              placeholder='Click here to write new status...'></textarea>*/}
-                    <input autoFocus={true} onBlur={this.deactivateEditMode} type="text" value={this.props.status}/>
+                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} type="text" value={this.state.status}/>
                     <button type='submit'>
                         Save
                     </button>
