@@ -1,13 +1,3 @@
-.dialogsWrapper {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 10px;
-    padding: 20px;
-    height: 78vh;
-}
-
 .dialogs {
     display: flex;
     background: rgba(255, 255, 255, 0.4);
@@ -16,7 +6,7 @@
 }
 
 .dialogsItems {
-    padding: 2.7vh;
+    padding: 20px;
     background: rgba(255, 255, 255, 1);
     border-radius: 10px 0 0 10px;
     height: 72.5vh;
@@ -48,13 +38,6 @@
     width: 91vh;
     margin: 0 2.7vh 1.3vh 2.7vh;
     height: 15vh;
-    padding: 2.7vh;
-    box-sizing: border-box;
-    background: rgba( 255, 255, 255, 1);
-    box-shadow: 0 8px 25px 0 rgba( 31, 38, 135, 0.4 );
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 20px );
-    border-radius: 10px;
     display: grid;
     grid-template-columns: 11fr 1fr;
     overflow: hidden;

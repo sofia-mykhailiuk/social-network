@@ -23,7 +23,7 @@ const MyPosts = (props) => {
     return (
         <div className="postsBlock">
             <h3>My posts</h3>
-            <div className='new-post-wrapper'>
+            <div className='new-post-wrapper shadowCard'>
                 <div className="custom-textarea">
                       <textarea
                           onChange={onChangeNewPostValue}

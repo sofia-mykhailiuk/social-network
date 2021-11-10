@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {getUsers, getUsersOnPageChanged, toggleFollow} from "../../Redux/users-reducer";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersCContainer extends React.Component {
     componentDidMount() {
@@ -15,13 +16,13 @@ class UsersCContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ? <Preloader/> : null}
+            {this.props.isFetching ? <Preloader/> :
             <Users users={this.props.users} totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize} onPageChanged={this.onPageChanged}
                    currentPage={this.props.currentPage}
                    followingInProgress={this.props.followingInProgress}
                    toggleFollow={this.props.toggleFollow}
-            />
+            />}
         </>
     }
 }
@@ -37,10 +38,10 @@ let mapStateToProps = (state) => {
     }
 };
 
-const UsersContainer = connect(mapStateToProps,
+const UsersContainer = withAuthRedirect(connect(mapStateToProps,
     {
         toggleFollow,
         getUsers, getUsersOnPageChanged
-    })(UsersCContainer);
+    })(UsersCContainer));
 
 export default UsersContainer;

@@ -9,7 +9,7 @@ const Profile = (props) => {
         return <Preloader/>
     }
     return (
-        <div className='panelWrapper'>
+        <div >
             <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
         </div>

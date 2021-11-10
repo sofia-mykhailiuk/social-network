@@ -1,8 +1,8 @@
 .userCard {
-    width: 48%;
-    height: 17vh;
+    width: 49.2%;
+    height: 18vh;
     overflow: hidden;
-    margin: 0px 5px 15px 5px;
+    margin: 0 0 15px 0;
     box-sizing: border-box;
     border-radius: 10px;
     display: grid;
