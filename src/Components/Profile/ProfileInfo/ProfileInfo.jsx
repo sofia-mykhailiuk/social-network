@@ -9,6 +9,7 @@ import twitterLogo from "./../../../assets/twitter-logo.png"
 import websiteLogo from "./../../../assets/websites-logo.png"
 import youtubeLogo from "./../../../assets/youtube-logo.png"
 import linkLogo from "./../../../assets/link-logo.png"
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
     return (
@@ -29,6 +30,7 @@ const ProfileInfo = (props) => {
                     <div className='full-name'>{props.profile.fullName}</div>
                     <div className="user-job">
                         <span>{props.profile.lookingForAJob ? 'Looking for a job!' : null}</span>
+                        <ProfileStatus status={'status in props'}/>
                         <br/>
                         <span>Contact me:</span>
                     </div>

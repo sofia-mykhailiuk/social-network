@@ -19,7 +19,7 @@ let mapStateToProps = (state) => {
         email: state.auth.email,
         isAuth: state.auth.isAuth,
         login: state.auth.login,
-        currentUser: state.auth.currentUser
+        currentUser: state.profilePage.currentUser
     };
 };
 
