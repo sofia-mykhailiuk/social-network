@@ -80,21 +80,35 @@ body {
 
 .custom-button {
   border-left: 1px solid black;
-  padding-left: 10px;
 }
 
 .custom-button button {
   border: none;
   background: none;
+  padding-top: 20px;
+  padding-left: 14px;
+}
+
+.custom-button:before {
+  display: block;
+  width: 1px;
+  border-left: 1px solid #000;
+  height: 250%;
+  position: absolute;
+  content: '';
+  left: -10px;
+  top: -90px;
+  padding-right: 10px;
 }
 
 .custom-textarea  {
-  height: 60px;
+  height: 100%;
+  width: 100%
 }
 
 .custom-textarea textarea {
   margin-bottom: 0;
-  padding-bottom: 0;
+  padding: 20px;
   resize: none;
   box-sizing: border-box;
   width: 100%;
@@ -104,3 +118,26 @@ body {
   -moz-appearance: none;
 }
 
+.toast-wrapper {
+  position: fixed;
+  bottom: 3.5%;
+  left: 90%;
+  height: max-content;
+  width: 9%;
+}
+
+.toast {
+  padding: 0.5rem 1rem;
+  background: rgba(128, 128, 128, 0.5);
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  opacity: 100%;
+  transition-property: opacity;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+}
+
+.toast:hover {
+  opacity: 0;
+}

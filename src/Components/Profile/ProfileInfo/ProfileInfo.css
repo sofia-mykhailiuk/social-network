@@ -8,7 +8,7 @@
 .profile-background-image {
     width: 100%;
     overflow: hidden;
-    height: 30vh;
+    height: 15rem;
     border-radius: 10px 10px 0 0;
 }
 
@@ -39,7 +39,7 @@
 .description-block {
     margin-top: 75px;
     width: 100%;
-    height: 38.5vh;
+    height: 20rem;
     max-height: 38.5vh;
     display: flex;
     flex-direction: column;

@@ -4,6 +4,10 @@
     padding-bottom: 5px;
     align-items: center;
     font-size: 12px;
+    width: 46px;
+    max-width: 46px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .friend-avatar img {

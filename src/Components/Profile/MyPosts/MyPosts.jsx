@@ -1,13 +1,23 @@
 import "./MyPosts.css";
 import Post from "./Post/Post";
 import React from "react";
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
+import {maxLengthCreator, required} from "../../../utils/validators";
+import {Textarea} from "../../common/FormControls/Textarea";
+
+const maxLength10 = maxLengthCreator(10)
 
 const AddNewPostForm = (props) => {
+
     return (
         <form onSubmit={props.handleSubmit} className='new-post-wrapper shadowCard'>
             <div className="custom-textarea">
-                      <Field name='newPostBody' component='textarea' placeholder='Click here to start typing...'/>
+                <Field
+                    name='newPostBody'
+                    component={Textarea}
+                    validate={[required, maxLength10]}
+                    placeholder='Click here to start typing...'
+                />
             </div>
             <div className='custom-button'>
                 <button>Add post</button>
@@ -30,8 +40,9 @@ const MyPosts = (props) => {
         />
     ));
 
-    const onAddPost = (formData) => {
+    const onAddPost = (formData, dispatch) => {
         props.addPost(formData.newPostBody)
+        dispatch(reset('newPost'))
     }
     return (
         <div className="postsBlock">
