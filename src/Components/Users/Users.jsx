@@ -1,9 +1,14 @@
 import "./Users.css";
 import User from "./User/User";
+import * as axios from "axios";
 
 const Users = (props) => {
     if (props.usersPage.users.length === 0) {
-        props.setUsers([{
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            props.setUsers(response.data.items);
+        });
+        /*props.setUsers([{
             id: 1,
             name: 'Andrew',
             surname: 'Kirchei',
@@ -135,7 +140,7 @@ const Users = (props) => {
             },
             status: '',
             followed: false
-        }]);
+        }]);*/
     }
 
     let userItem = props.usersPage.users.map((u) => {
