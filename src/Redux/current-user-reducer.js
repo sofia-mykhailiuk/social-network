@@ -5,9 +5,7 @@ let initialState = {
         img: 'https://avatars.githubusercontent.com/u/88670730?v=4'
 }
 
-const currentUserReducer = (state = initialState, action) => {
-
-
+const currentUserReducer = (state = initialState) => {
     return state;
 }
 
