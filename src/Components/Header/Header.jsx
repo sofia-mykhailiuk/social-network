@@ -13,6 +13,8 @@ const Header = (props) => {
 
     return (
         <header className="header cardWrapper">
+
+
             {props.isAuth ?
                 <div className="currentUser">
                     <button onClick={props.logout}>Log out</button>

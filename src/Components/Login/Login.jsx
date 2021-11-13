@@ -1,5 +1,5 @@
 import React from "react";
-import {Field, reduxForm, reset} from "redux-form";
+import {Field, reduxForm} from "redux-form";
 import {Input} from "../common/FormControls/Input";
 import "./Login.css"
 import {email, required} from "../../utils/validators";
@@ -14,8 +14,7 @@ const LoginForm = (props) => {
         height: "35px",
         width: "260px",
         borderRadius: "8px",
-        marginTop: "10px",
-        color: "#5181b8"
+        marginTop: "10px"
     }
 
     return <form onSubmit={handleSubmit}>
@@ -28,23 +27,19 @@ const LoginForm = (props) => {
         <div>
             <Field name='rememberMe' component='input' type='checkbox'/>remember me
         </div>
-
         <button style={buttonStyle} disabled={pristine || submitting}>Login</button>
+        {props.error &&
+            <div style={{color: "#AD7CB5", fontStyle: "italic", textAlign: "center"}}>{props.error}</div>}
     </form>
 }
 
 const LoginReduxForm = reduxForm({
-    form: "login-form"
+    form: "loginForm"
 })(LoginForm)
 
 const Login = (props) => {
-    const onSubmit = (formData, dispatch) => {
+    const onSubmit = (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe)
-        dispatch(reset("login-form"))
-    }
-
-    if(props.loginError) {
-        alert(props.loginError)
     }
 
     if (props.isAuth) {
@@ -53,7 +48,7 @@ const Login = (props) => {
 
     return <div className="login-wrapper">
         <div className='shadowCard login-card'>
-            <h1 style={{color: "#5181b8"}}>LogIn</h1>
+            <h1 style={{color: "#AD7CB5"}}>Login</h1>
             <LoginReduxForm onSubmit={onSubmit}/>
         </div>
     </div>
@@ -61,8 +56,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth,
-        loginError: state.auth.errorMessage
+        isAuth: state.auth.isAuth
     }
 }
 
