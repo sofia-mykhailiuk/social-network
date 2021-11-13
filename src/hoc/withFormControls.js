@@ -14,24 +14,22 @@ export const withFormControls = Element => ({input, meta, ...props}) => {
             padding: "0px 5px"
         }
     }
-
+    const hasError = meta.touched && meta.error
     const [text, setText] = useState(null)
     const addToast = useToastContext()
-
-    const hasError = meta.touched && meta.error
 
     useEffect(() => {
         if (hasError && meta.error !== '') {
             setText(meta.error)
         }
 
-    }, [meta.error, meta.touched])
+    }, [hasError, meta.error])
 
     useEffect(() => {
         if (text && text !== '') {
             addToast(text)
         }
-    }, [text])
+    }, [text, addToast])
 
     return (
         <Element

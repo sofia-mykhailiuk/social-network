@@ -2,9 +2,7 @@ import {profileAPI} from "../api/api";
 
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
-const SET_CURRENT_USER = "SET-CURRENT-USER";
 const SET_USER_STATUS = "SET-USER-STATUS";
-const UPDATE_USER_STATUS = "UPDATE-USER-STATUS";
 
 let initialState = {
     posts: [
@@ -13,7 +11,6 @@ let initialState = {
         {id: "3", message: "What`s up", likesCount: 13},
         {id: "4", message: "Yo", likesCount: 1},
     ],
-    currentUser: null,
     profile: null,
     status: ''
 };
@@ -38,20 +35,11 @@ const profileReducer = (state = initialState, action) => {
                 profile: action.profile
             }
         }
-        case SET_CURRENT_USER: {
-            return {
-                ...state,
-                currentUser: action.profile
-            }
-        }
         case SET_USER_STATUS: {
             return {
                 ...state,
                 status: action.status
             }
-        }
-        case UPDATE_USER_STATUS: {
-
         }
         default: {
             return state;
@@ -61,7 +49,6 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPostActionCreator = (postBody) => ({type: ADD_POST, postBody});
 const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const setCurrentUser = (profile) => ({type: SET_CURRENT_USER, profile})
 const setUserStatus = (status) => ({type: SET_USER_STATUS, status})
 
 export const getProfile = (userId) => (dispatch) => {

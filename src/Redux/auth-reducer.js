@@ -1,15 +1,13 @@
-import {authAPI, profileAPI} from "../api/api";
-import {setCurrentUser} from "./profile-reducer";
+import {authAPI} from "../api/api";
+import {reset, stopSubmit} from "redux-form";
 
 const SET_USER_DATA = "SET-USER-DATA"
-const LOGIN_ERROR = "LOGIN-ERROR"
 
 let initialState = {
     userId: null,
     email: null,
     login: null,
-    isAuth: false,
-    errorMessage: null
+    isAuth: false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -17,26 +15,20 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA: {
             return {...state, ...action.payload}
         }
-        case LOGIN_ERROR: {
-            return {...state, errorMessage: action.payload}
-        }
         default: {
             return state
         }
     }
 }
 
-export const setAuthUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, payload: {userId, email, login, isAuth}});
-export const setLoginErrorMessage = (payload) => ({type: LOGIN_ERROR, payload})
+export const setAuthUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, payload:
+        {userId, email, login, isAuth}});
 
 export const getAuth = () => (dispatch) => {
     authAPI.getAuth().then(data => {
         if (data.resultCode === 0) {
             let {id, login, email} = data.data;
             dispatch(setAuthUserData(id, email, login, true));
-            profileAPI.getProfile(id).then(data => {
-                dispatch(setCurrentUser(data))
-            })
         }
     })
 }
@@ -45,9 +37,11 @@ export const login = (email, password, rememberMe) => (dispatch) => {
     authAPI.login(email, password, rememberMe).then(data => {
         if (data.resultCode === 0) {
             dispatch(getAuth())
+            dispatch(reset("loginForm"))
         } else if (data.resultCode  === 1) {
-            dispatch(setLoginErrorMessage(data.messages))
-        } else {dispatch(setLoginErrorMessage('Please, login on website "social-network.samuraijs.com"'))}
+            let errorMessage = data.messages.length > 0 ? data.messages[0] : "Error"
+            dispatch(stopSubmit("loginForm", {_error: errorMessage}))
+        }
     })
 }
 

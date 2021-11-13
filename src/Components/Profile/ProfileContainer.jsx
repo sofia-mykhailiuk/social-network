@@ -1,50 +1,40 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getProfile, getUserStatus, updateUserStatus} from "../../Redux/profile-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
-class ProfileContainer extends React.Component {
-    componentDidMount() {
-        let userId = this.props.match.params.userId;
-        if(!userId) {
-            userId = 20154
-        }
-        this.props.getProfile(userId)
-        this.props.getUserStatus(userId)
-    }
-
-    render() {
-        return <Profile {...this.props} profile={this.props.profile} updateStatus={this.props.updateUserStatus}/>
-    }
-}
-/*
 const ProfileContainer = (props) => {
-    useEffect(()=>{
-        let userId = props.match.params.userId
-        if(!userId && props.currentUser) {
-            userId = props.currentUser.userId
+    const [userId, setUserId] = useState(props.match.params.userId)
+
+    useEffect(() => {
+        if(props.match.params.userId) {
+            setUserId(props.match.params.userId)
+        } else {
+            setUserId(props.match.params.userId)
+        }
+        if (!userId && props.isAuth) {
+            props.getProfile(props.authorizedUserId)
+            props.getUserStatus(props.authorizedUserId)
+        } else if (userId) {
             props.getProfile(userId)
             props.getUserStatus(userId)
         }
-    },[props.currentUser])
+    }, [props.match.params.userId, props.isAuth])
+    return <Profile {...props} profile={props.profile} updateStatus={props.updateUserStatus}/>
+}
 
 
-    return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateUserStatus}/>
-}*/
-
-let mapStateToProps = (state) => {
-    return {
-        profile: state.profilePage.profile,
-        currentUser: state.profilePage.currentUser,
-        status: state.profilePage.status
-    }
-};
+let mapStateToProps = (state) => ({
+    profile: state.profilePage.profile,
+    status: state.profilePage.status,
+    authorizedUserId: state.auth.userId,
+    isAuth: state.auth.isAuth
+});
 
 export default compose(
-    connect(mapStateToProps, {getProfile,getUserStatus, updateUserStatus}),
-    withRouter,
-    withAuthRedirect
+    connect(mapStateToProps, {getProfile, getUserStatus, updateUserStatus}),
+    withRouter
+    // withAuthRedirect
 )(ProfileContainer)
