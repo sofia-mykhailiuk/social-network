@@ -9,7 +9,7 @@ const ProfileContainer = (props) => {
     const [userId, setUserId] = useState(props.match.params.userId)
 
     useEffect(() => {
-        if(props.match.params.userId) {
+        if (props.match.params.userId) {
             setUserId(props.match.params.userId)
         } else {
             setUserId(props.match.params.userId)
@@ -21,7 +21,7 @@ const ProfileContainer = (props) => {
             props.getProfile(userId)
             props.getUserStatus(userId)
         }
-        if(!userId && !props.authorizedUserId){
+        if (!userId && !props.authorizedUserId) {
             props.history.push('/login')
         }
     }, [props.match.params.userId, props.isAuth])
@@ -29,12 +29,15 @@ const ProfileContainer = (props) => {
 }
 
 
-let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    status: state.profilePage.status,
-    authorizedUserId: state.auth.userId,
-    isAuth: state.auth.isAuth
-});
+let mapStateToProps = (state) => {
+    console.log('mSTP PROFILE')
+    return {
+        profile: state.profilePage.profile,
+        status: state.profilePage.status,
+        authorizedUserId: state.auth.userId,
+        isAuth: state.auth.isAuth
+    }
+};
 
 export default compose(
     connect(mapStateToProps, {getProfile, getUserStatus, updateUserStatus}),
