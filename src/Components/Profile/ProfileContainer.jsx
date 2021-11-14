@@ -21,6 +21,9 @@ const ProfileContainer = (props) => {
             props.getProfile(userId)
             props.getUserStatus(userId)
         }
+        if(!userId && !props.authorizedUserId){
+            props.history.push('/login')
+        }
     }, [props.match.params.userId, props.isAuth])
     return <Profile {...props} profile={props.profile} updateStatus={props.updateUserStatus}/>
 }
