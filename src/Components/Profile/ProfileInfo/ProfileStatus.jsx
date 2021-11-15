@@ -1,55 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 
-class ProfileStatus extends React.Component {
-    state = {
-        editMode: false,
-        status: this.props.status
+const ProfileStatus = (props) => {
+    const [editMode, setEditMode] = useState(false)
+    const [status, setStatus] = useState(props.status)
+
+    const activateEditMode = () => {
+        setEditMode(true)
     }
 
-    activateEditMode = () => {
-        this.setState({
-            editMode: true,
-            status: this.props.status
-        })
+    const onStatusChange = (event) => {
+        setStatus(event.target.value)
     }
 
-    deactivateEditMode = () => {
-        this.setState({
-            editMode: false
-        });
-        this.props.updateStatus(this.state.status);
+    const deactivateEditMode = () => {
+        setEditMode(false)
+        props.updateStatus(status)
     }
 
-    onStatusChange = (event) => {
-        this.setState({
-            status: event.target.value
-        })
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.status !== this.props.status) {
-            this.setState({
-                status: this.props.status
-            })
-        }
-
-    }
-
-    render() {
-        return <div>
-            {!this.state.editMode ?
-                <span title={'Double click to change status...'}
-                      onDoubleClick={this.activateEditMode}>{this.props.status ? this.props.status : 'no status'}</span> :
-                <div>
-                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} type="text"
-                           value={this.state.status}/>
-                    <button type='submit'>
-                        Save
-                    </button>
-                </div>}
-        </div>
-    }
-
+    return <div>
+        {!editMode ?
+            <span title={'Double click to change status...'}
+                  onDoubleClick={activateEditMode}>{props.status ? props.status : 'no status'}</span> :
+            <div>
+                <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} type="text"
+                       value={status}/>
+                <button type='submit'>
+                    Save
+                </button>
+            </div>}
+    </div>
 }
 
 export default ProfileStatus
